@@ -81,6 +81,7 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # System prop
 -include $(DEVICE_PATH)/system_prop.mk
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Wi-Fi
 PRODUCT_PACKAGES += \
