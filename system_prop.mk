@@ -22,3 +22,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 # Zygote
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.device_config.runtime_native.usap_pool_enabled=true
+
+# Encryption
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.crypto.dm_default_key.options_format.version=2 \
+    ro.crypto.volume.filenames_mode=aes-256-cts \
+    ro.crypto.volume.metadata.method=dm-default-key \
+    ro.crypto.volume.options=::v2
