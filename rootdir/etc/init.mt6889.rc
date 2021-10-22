@@ -5,3 +5,23 @@ on init
 on post-fs-data
     # Services
     setprop init.svc.console stopped
+
+on post-fs
+
+on property:sys.boot_completed=1
+
+service prop-adap-core-gsi /odm/bin/self-init gsicore
+    class core
+    user root
+    group root system radio
+    oneshot
+    override
+    disabled
+
+service prop-adap-main-gsi /odm/bin/self-init gsimain
+    class main
+    user root
+    group root system radio
+    oneshot
+    override
+    disabled
