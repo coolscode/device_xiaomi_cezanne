@@ -25,3 +25,11 @@ service prop-adap-main-gsi /odm/bin/self-init gsimain
     oneshot
     override
     disabled
+
+service aee_aedv /system/bin/true
+    oneshot
+    disabled
+
+service aee_aedv64 /system/bin/true
+    oneshot
+    disabled
