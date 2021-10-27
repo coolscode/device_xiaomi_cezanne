@@ -5,3 +5,7 @@ etc/apns-conf.xml:product/etc/apns-conf.xml
 lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so
 
+# IMS
+-priv-app/ImsService/ImsService.apk
+bin/vtservice
+etc/init/init.vtservice.rc
