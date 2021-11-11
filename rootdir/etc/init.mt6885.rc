@@ -11,6 +11,10 @@ on post-fs
 
 on property:sys.boot_completed=1
 
+on boot
+    # ZRAM
+    swapon_all /vendor/fstab.enableswap
+
 service prop-adap-core-gsi /odm/bin/self-init gsicore
     class core
     user root
