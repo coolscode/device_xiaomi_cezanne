@@ -91,6 +91,11 @@ PRODUCT_SOONG_NAMESPACES += \
 -include $(DEVICE_PATH)/system_prop.mk
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
+# Shims
+PRODUCT_PACKAGES += \
+    ImsServiceBase \
+    libshim_vtservice
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
