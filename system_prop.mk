@@ -3,6 +3,12 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1
 
+# NFC
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    persist.sys.nfc.disPowerSave=1 \
+    persist.nfc.smartcard.recorder.enable=true \
+    persist.sys.nfc.default=on
+
 # OMX
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     debug.stagefright.omx_default_rank.sw-audio=1 \

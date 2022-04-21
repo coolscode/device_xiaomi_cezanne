@@ -62,6 +62,14 @@ PRODUCT_PACKAGES += \
     init.mt6889.rc \
     fstab.mt6889
 
+# NFC
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    com.gsma.services.nfc  \
+    NfcNci \
+    SecureElement \
+    Tag
+
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nxp.conf
 
