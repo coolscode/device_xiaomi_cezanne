@@ -18,6 +18,14 @@ bin/vtservice
 etc/init/init.vtservice.rc
 framework/mediatek-ims-extension-plugin.jar
 framework/mediatek-ims-legacy.jar
+lib/libcomutils.so
+lib/libimsma.so
+lib/libimsma_adapt.so
+lib/libimsma_rtp.so
+lib/libimsma_socketwrapper.so
+lib/libsignal.so
+lib/libsink.so
+lib/libsource.so
 lib/libmtk_vt_service.so
 lib/libmtk_vt_wrapper.so
 lib/libmtkaudio_utils.so
@@ -36,3 +44,5 @@ lib64/libmtkperf_client.so
 lib64/libmtkshifter.so
 lib64/libvcodec_cap.so
 lib64/libvcodec_capenc.so
+system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
+system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
