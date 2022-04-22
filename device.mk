@@ -38,12 +38,15 @@ TARGET_SCREEN_WIDTH := 1080
 # A/B
 AB_OTA_UPDATER := false
 
+# VNDK
+PRODUCT_EXTRA_VNDK_VERSIONS := 31
+
 # Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default
 
 PRODUCT_COPY_FILES += \
-    $(DEVICE_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PLATFORM_VNDK_VERSION)/etc/audio_policy_configuration.xml
+    $(DEVICE_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_EXTRA_VNDK_VERSIONS)/etc/audio_policy_configuration.xml
 
 # fastbootd
 PRODUCT_PACKAGES += \
