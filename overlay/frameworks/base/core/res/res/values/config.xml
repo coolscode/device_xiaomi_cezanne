@@ -48,7 +48,7 @@
     <!-- Flag specifying whether WFC over IMS should be available for carrier: independent of
          carrier provisioning. If false: hard disabled. If true: then depends on carrier
          provisioning, availability etc -->
-     <bool name="config_carrier_wfc_ims_available">false</bool>
+     <bool name="config_carrier_wfc_ims_available">true</bool>
 
     <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
      <bool name="config_cellBroadcastAppLinks">true</bool>
@@ -88,7 +88,7 @@
          and the screen off animation has been performed. -->
      <bool name="config_dozeAfterScreenOffByDefault">true</bool>
      <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
-     <bool name="config_dozeAlwaysOnEnabled">true</bool>
+     <bool name="config_dozeAlwaysOnEnabled">false</bool>
 
     <!-- Flag specifying whether or not IMS will use the ImsResolver dynamically -->
      <bool name="config_dynamic_bind_ims">true</bool>
@@ -244,6 +244,241 @@
     <!-- Height of the status bar -->
      <dimen name="status_bar_height_portrait">24.0dip</dimen>
 
+    <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
+         percent. The length of this array is assumed to be one greater than
+         config_ambientThresholdLevels. The brightening threshold is calculated as
+         lux * (1.0f + CONSTRAINT_VALUE). When the current lux is higher than this threshold,
+         the screen brightness is recalculated. See the config_ambientThresholdLevels
+         description for how the constraint value is chosen. -->
+    <array name="config_ambientBrighteningThresholds">
+        <item>5</item>
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+        <item>100</item>
+        <item>400</item>
+        <item>600</item>
+        <item>1000</item>
+    </array>
+
+    <!-- Array of hysteresis constraint values for darkening, represented as tenths of a
+         percent. The length of this array is assumed to be one greater than
+         config_ambientThresholdLevels. The darkening threshold is calculated as
+         lux * (1.0f - CONSTRAINT_VALUE). When the current lux is lower than this threshold,
+         the screen brightness is recalculated. See the config_ambientThresholdLevels
+         description for how the constraint value is chosen. -->
+    <array name="config_ambientDarkeningThresholds">
+        <item>800</item>
+        <item>800</item>
+        <item>800</item>
+        <item>800</item>
+        <item>800</item>
+        <item>500</item>
+        <item>500</item>
+        <item>500</item>
+    </array>
+
+    <!-- Array of ambient lux threshold values. This is used for determining hysteresis constraint
+         values by calculating the index to use for lookup and then setting the constraint value
+         to the corresponding value of the array. The new brightening hysteresis constraint value
+         is the n-th element of config_ambientBrighteningThresholds, and the new darkening
+         hysteresis constraint value is the n-th element of config_ambientDarkeningThresholds.
+         The (zero-based) index is calculated as follows: (MAX is the largest index of the array)
+         condition                       calculated index
+         value < level[0]                0
+         level[n] <= value < level[n+1]  n+1
+         level[MAX] <= value             MAX+1 -->
+    <array name="config_ambientThresholdLevels">
+        <item>2</item>
+        <item>10</item>
+        <item>30</item>
+        <item>100</item>
+        <item>800</item>
+        <item>2000</item>
+        <item>4000</item>
+    </array>
+
+    <!-- Array of desired screen brightness in nits corresponding to the lux values
+         in the config_autoBrightnessLevels array. As with config_screenBrightnessMinimumNits and
+         config_screenBrightnessMaximumNits, the display brightness is defined as the measured
+         brightness of an all-white image.
+         If this is defined then:
+            - config_autoBrightnessLcdBacklightValues should not be defined
+            - config_screenBrightnessNits must be defined
+            - config_screenBrightnessBacklight must be defined
+         This array should have size one greater than the size of the config_autoBrightnessLevels
+         array. The brightness values must be non-negative and non-decreasing. This must be
+         overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessDisplayValuesNits">
+        <item>5</item>
+        <item>5</item>
+        <item>5</item>
+        <item>17</item>
+        <item>24</item>
+        <item>31</item>
+        <item>34</item>
+        <item>46</item>
+        <item>59</item>
+        <item>76</item>
+        <item>81</item>
+        <item>82</item>
+        <item>82</item>
+        <item>82</item>
+        <item>83</item>
+        <item>83</item>
+        <item>83</item>
+        <item>84</item>
+        <item>84</item>
+        <item>85</item>
+        <item>85</item>
+        <item>85</item>
+        <item>86</item>
+        <item>86</item>
+        <item>87</item>
+        <item>89</item>
+        <item>90</item>
+        <item>91</item>
+        <item>93</item>
+        <item>94</item>
+        <item>96</item>
+        <item>97</item>
+        <item>99</item>
+        <item>100</item>
+        <item>101</item>
+        <item>104</item>
+        <item>105</item>
+        <item>106</item>
+        <item>108</item>
+        <item>109</item>
+        <item>111</item>
+        <item>112</item>
+        <item>114</item>
+        <item>116</item>
+        <item>137</item>
+        <item>157</item>
+        <item>180</item>
+        <item>205</item>
+        <item>226</item>
+        <item>257</item>
+        <item>280</item>
+        <item>295</item>
+        <item>369</item>
+        <item>434</item>
+        <item>500</item>
+        <item>500</item>
+        <item>500</item>
+    </integer-array>
+
+    <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
+         The N entries of this array define N + 1 control points as follows:
+         (1-based arrays)
+         Point 1:            (0, value[1]):             lux <= 0
+         Point 2:     (level[1], value[2]):  0        < lux <= level[1]
+         Point 3:     (level[2], value[3]):  level[2] < lux <= level[3]
+         ...
+         Point N+1: (level[N], value[N+1]):  level[N] < lux
+         The control points must be strictly increasing.  Each control point
+         corresponds to an entry in the brightness backlight values arrays.
+         For example, if lux == level[1] (first element of the levels array)
+         then the brightness will be determined by value[2] (second element
+         of the brightness values array).
+         Spline interpolation is used to determine the auto-brightness
+         backlight values for lux levels between these control points.
+         Must be overridden in platform specific overlays -->
+    <array name="config_autoBrightnessLevels">
+        <item>1</item>
+        <item>2</item>
+        <item>4</item>
+        <item>6</item>
+        <item>8</item>
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
+        <item>40</item>
+        <item>45</item>
+        <item>50</item>
+        <item>55</item>
+        <item>60</item>
+        <item>65</item>
+        <item>70</item>
+        <item>75</item>
+        <item>80</item>
+        <item>85</item>
+        <item>90</item>
+        <item>95</item>
+        <item>100</item>
+        <item>120</item>
+        <item>140</item>
+        <item>160</item>
+        <item>180</item>
+        <item>200</item>
+        <item>220</item>
+        <item>240</item>
+        <item>260</item>
+        <item>280</item>
+        <item>300</item>
+        <item>320</item>
+        <item>340</item>
+        <item>360</item>
+        <item>380</item>
+        <item>400</item>
+        <item>420</item>
+        <item>440</item>
+        <item>460</item>
+        <item>480</item>
+        <item>500</item>
+        <item>700</item>
+        <item>900</item>
+        <item>1100</item>
+        <item>1300</item>
+        <item>1500</item>
+        <item>1700</item>
+        <item>1900</item>
+        <item>2200</item>
+        <item>2500</item>
+        <item>3000</item>
+        <item>3500</item>
+        <item>4000</item>
+        <item>4500</item>
+    </array>
+
+    <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
+         percent. The length of this array is assumed to be one greater than
+         config_screenThresholdLevels. The brightening threshold is calculated as
+         screenBrightness * (1.0f + CONSTRAINT_VALUE). When the new screen brightness is higher
+         than this threshold, it is applied. See the config_screenThresholdLevels description for
+         how the constraint value is chosen. -->
+    <array name="config_screenBrighteningThresholds">
+        <item>@null</item>
+    </array>
+
+   <!-- Array of hysteresis constraint values for darkening, represented as tenths of a
+         percent. The length of this array is assumed to be one greater than
+         config_screenThresholdLevels. The darkening threshold is calculated as
+         screenBrightness * (1.0f - CONSTRAINT_VALUE). When the new screen brightness is lower than
+         this threshold, it is applied. See the config_screenThresholdLevels description for how
+         the constraint value is chosen. -->
+    <array name="config_screenDarkeningThresholds">
+        <item>@null</item>
+    </array>
+
+    <!-- Array of screen brightness threshold values. This is used for determining hysteresis
+         constraint values by calculating the index to use for lookup and then setting the
+         constraint value to the corresponding value of the array. The new brightening hysteresis
+         constraint value is the n-th element of config_screenBrighteningThresholds, and the new
+         darkening hysteresis constraint value is the n-th element of
+         config_screenDarkeningThresholds.
+         The (zero-based) index is calculated as follows: (MAX is the largest index of the array)
+         condition                       calculated index
+         value < level[0]                0
+         level[n] <= value < level[n+1]  n+1
+         level[MAX] <= value             MAX+1 -->
+    <array name="config_screenThresholdLevels">
+    </array>
+
     <!-- The maximum range of gamma adjustment possible using the screen
          auto-brightness adjustment setting. -->
      <fraction name="config_autoBrightnessAdjustmentMaxGamma">300.0%</fraction>
@@ -279,16 +514,121 @@
      <integer name="config_bluetooth_operating_voltage_mv">0</integer>
 
     <!-- Fast brightness animation ramp rate in brightness units per second-->
-     <integer name="config_brightness_ramp_rate_fast">180</integer>
+     <integer name="config_brightness_ramp_rate_fast">308</integer>
 
     <!-- Slow brightness animation ramp rate in brightness units per second-->
-     <integer name="config_brightness_ramp_rate_slow">60</integer>
+     <integer name="config_brightness_ramp_rate_slow">246</integer>
+
+    <!-- An array describing the screen's backlight values corresponding to the brightness
+         values in the config_screenBrightnessNits array.
+         This array should be equal in size to config_screenBrightnessBacklight. -->
+    <array name="config_screenBrightnessBacklight">
+        <item>@null</item>
+        <item>1</item>
+        <item>10</item>
+        <item>15</item>
+        <item>30</item>
+        <item>45</item>
+        <item>60</item>
+        <item>75</item>
+        <item>90</item>
+        <item>105</item>
+        <item>120</item>
+        <item>135</item>
+        <item>150</item>
+        <item>165</item>
+        <item>180</item>
+        <item>195</item>
+        <item>210</item>
+        <item>225</item>
+        <item>240</item>
+        <item>255</item>
+    </array>
+
+    <!-- An array of floats describing the screen brightness in nits corresponding to the backlight
+         values in the config_screenBrightnessBacklight array.  On OLED displays these  values
+         should be measured with an all white image while the display is in the fully on state.
+         Note that this value should *not* reflect the maximum brightness value for any high
+         brightness modes but only the maximum brightness value obtainable in a sustainable manner.
+         This array should be equal in size to config_screenBrightnessBacklight -->
+    <array name="config_screenBrightnessNits">
+        <item>@null</item>
+        <item>4</item>
+        <item>22</item>
+        <item>30</item>
+        <item>68</item>
+        <item>95</item>
+        <item>133</item>
+        <item>165</item>
+        <item>192</item>
+        <item>218</item>
+        <item>255</item>
+        <item>290</item>
+        <item>326</item>
+        <item>352</item>
+        <item>384</item>
+        <item>399</item>
+        <item>422</item>
+        <item>432</item>
+        <item>442</item>
+        <item>455</item>
+    </array>
+
+    <!-- Minimum screen brightness setting allowed by the power manager.
+         The user is forbidden from setting the brightness below this level. -->
+    <integer name="config_screenBrightnessSettingMinimum">1</integer>
+
+    <!-- Maximum screen brightness setting allowed by the power manager.
+         The user is forbidden from setting the brightness above this level. -->
+    <integer name="config_screenBrightnessSettingMaximum">255</integer>
+
+    <!-- Default screen brightness setting.
+         Must be in the range specified by minimum and maximum. -->
+    <integer name="config_screenBrightnessSettingDefault">102</integer>
+
+
+    <!-- The default journal mode to use use when Write-Ahead Logging is not active.
+         Choices are: OFF, DELETE, TRUNCATE, PERSIST and MEMORY.
+         PERSIST may improve performance by reducing how often journal blocks are
+         reallocated (compared to truncation) resulting in better data block locality
+         and less churn of the storage media.
+         The PERSIST mode results in data persisting in the journal beyond the life of
+         a transaction, so it interacts poorly with SECURE_DELETE. -->
+    <string name="db_default_journal_mode">MEMORY</string>
+
+    <!-- The database synchronization mode when using the default journal mode.
+         FULL is safest and preserves durability at the cost of extra fsyncs.
+         NORMAL also preserves durability in non-WAL modes and uses checksums to ensure
+         integrity although there is a small chance that an error might go unnoticed.
+         Choices are: FULL, NORMAL, OFF. -->
+    <string name="db_default_sync_mode">OFF</string>
+
+    <!-- The database synchronization mode when using Write-Ahead Logging.
+         From https://www.sqlite.org/pragma.html#pragma_synchronous:
+         WAL mode is safe from corruption with synchronous=NORMAL, and probably DELETE mode is safe
+         too on modern filesystems. WAL mode is always consistent with synchronous=NORMAL, but WAL
+         mode does lose durability. A transaction committed in WAL mode with
+         synchronous=NORMAL might roll back following a power loss or system crash.
+         Transactions are durable across application crashes regardless of the synchronous setting
+         or journal mode. The synchronous=NORMAL setting is a good choice for most applications
+         running in WAL mode.
+         Choices are: FULL, NORMAL, OFF. -->
+    <string name="db_wal_sync_mode">OFF</string>
 
     <!-- Maximum color temperature, in Kelvin, supported by display white balance. -->
-     <integer name="config_displayWhiteBalanceColorTemperatureMax">8000</integer>
+     <integer name="config_displayWhiteBalanceColorTemperatureMax">1000</integer>
 
     <!-- Minimum color temperature, in Kelvin, supported by display white balance. -->
-     <integer name="config_displayWhiteBalanceColorTemperatureMin">4000</integer>
+     <integer name="config_displayWhiteBalanceColorTemperatureMin">1000</integer>
+
+    <!-- List supported color modes. -->
+    <integer-array name="config_availableColorModes">
+        <item>0</item> <!-- COLOR_MODE_NATURAL -->
+        <item>1</item> <!-- COLOR_MODE_BOOSTED -->
+        <item>2</item> <!-- COLOR_MODE_SATURATED -->
+        <item>3</item> <!-- COLOR_MODE_AUTOMATIC -->
+    </integer-array>
+
      <integer name="config_longPressOnHomeBehavior">0</integer>
 
     <!--  Maximum number of supported users -->
@@ -320,14 +660,6 @@
          that can be set by the user. -->
      <integer name="config_screenBrightnessDoze">1</integer>
 
-    <!-- Default screen brightness setting.
-         Must be in the range specified by minimum and maximum. -->
-     <integer name="config_screenBrightnessSettingDefault">102</integer>
-
-    <!-- Minimum screen brightness setting allowed by the power manager.
-         The user is forbidden from setting the brightness below this level. -->
-     <integer name="config_screenBrightnessSettingMinimum">10</integer>
-
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
      <integer name="config_shutdownBatteryTemperature">599</integer>
 
@@ -343,7 +675,7 @@
          Specify the component name or an empty string if none.
          Note that doze dreams are not subject to the same start conditions as ordinary dreams.
          Doze dreams will run whenever the power manager is in a dozing state. -->
-     <string name="config_dozeComponent">com.miui.aod/com.miui.aod.doze.DozeService</string>
+     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
 
     <!-- Regex of wired ethernet ifaces -->
      <string name="config_ethernet_iface_regex">eth\\d</string>
@@ -364,25 +696,6 @@
      <string name="config_wlan_data_service_package">com.android.phone</string>
      <string name="config_wlan_network_service_package">com.android.phone</string>
 
-    <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
-         percent. The length of this array is assumed to be one greater than
-         config_ambientThresholdLevels. The brightening threshold is calculated as
-         lux * (1.0f + CONSTRAINT_VALUE). When the current lux is higher than this threshold,
-         the screen brightness is recalculated. See the config_ambientThresholdLevels
-         description for how the constraint value is chosen. -->
-    <integer-array name="config_ambientBrighteningThresholds">
-        <item>100</item>
-    </integer-array>
-
-    <!-- Array of hysteresis constraint values for darkening, represented as tenths of a
-         percent. The length of this array is assumed to be one greater than
-         config_ambientThresholdLevels. The darkening threshold is calculated as
-         lux * (1.0f - CONSTRAINT_VALUE). When the current lux is lower than this threshold,
-         the screen brightness is recalculated. See the config_ambientThresholdLevels
-         description for how the constraint value is chosen. -->
-    <integer-array name="config_ambientDarkeningThresholds">
-        <item>200</item>
-    </integer-array>
 
     <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
     <integer-array name="config_keyboardTapVibePattern">
@@ -435,26 +748,24 @@
 
     <!-- Default list of files pinned by the Pinner Service -->
     <string-array name="config_defaultPinnerServiceFiles">
-        <item>/data/dalvik-cache/arm64/system@framework@boot.oat</item>
-        <item>/data/dalvik-cache/arm/system@framework@boot.oat</item>
-        <item>/data/dalvik-cache/arm64/system@framework@services.jar@classes.dex</item>
-        <item>/data/dalvik-cache/arm/system@framework@services.jar@classes.dex</item>
-        <item>/system/framework/arm64/boot.oat</item>
-        <item>/system/framework/arm/boot.oat</item>
-        <item>/system/framework/oat/arm64/services.odex</item>
-        <item>/system/framework/oat/arm/services.odex</item>
-        <item>/system/framework/arm64/boot-framework.oat</item>
-        <item>/system/framework/arm/boot-framework.oat</item>
-        <item>/system/framework/arm64/boot-core-libart.oat</item>
-        <item>/system/framework/arm/boot-core-libart.oat</item>
-        <item>/system/lib64/libRScpp.so</item>
-        <item>/system/lib64/libRS.so</item>
-        <item>/system/lib64/libRS_internal.so</item>
-        <item>/system/lib64/libbcinfo.so</item>
-        <item>/system/lib64/libRSDriver.so</item>
-        <item>/system/lib64/libRSCpuRef.so</item>
-        <item>/system/lib64/libblas.so</item>
-    </string-array>
+        <item>"/apex/com.android.art/javalib/core-libart.jar"</item>
+        <item>"/apex/com.android.art/javalib/core-oj.jar"</item>
+        <item>"/apex/com.android.media/javalib/updatable-media.jar"</item>
+        <item>"/system/bin/surfaceflinger"</item>
+        <item>"/system/framework/framework.jar"</item>
+        <item>"/system/framework/services.jar"</item>
+        <item>"/system/lib64/libRS.so"</item>
+        <item>"/system/lib64/libRSCpuRef.so"</item>
+        <item>"/system/lib64/libRSDriver.so"</item>
+        <item>"/system/lib64/libRS_internal.so"</item>
+        <item>"/system/lib64/libRScpp.so"</item>
+        <item>"/system/lib64/libbcinfo.so"</item>
+        <item>"/system/lib64/libblas.so"</item>
+        <item>"/system_ext/priv-app/SystemUI/SystemUI.apk"</item>
+        <item>"/vendor/lib64/libCB.so"</item>
+        <item>"/vendor/lib64/libcamxexternalformatutils.so"</item>
+        <item>"/vendor/lib64/libgsl.so"</item>
+        <item>"/vendor/lib64/libipebpsstriping.so"</item>    </string-array>
 
     <!-- List of regexpressions describing the interface (if any) that represent tetherable
          bluetooth interfaces.  If the device doesn't want to support tethering over bluetooth this
