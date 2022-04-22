@@ -176,7 +176,7 @@
      <bool name="config_supportDoubleTapWake">false</bool>
 
     <!-- Boolean indicating if current platform supports HFP inband ringing -->
-     <bool name="config_supportSystemNavigationKeys">false</bool>
+     <bool name="config_supportSystemNavigationKeys">true</bool>
 
     <!-- Indicate whether to allow the device to suspend when the screen is off
          due to the proximity sensor.  This resource should only be set to true
