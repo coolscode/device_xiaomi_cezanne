@@ -16,14 +16,20 @@
 */
 -->
 <resources>
+    <dimen name="status_bar_padding_top">2dp</dimen>
 
-    <!-- the padding on the top of the statusbar (usually 0) -->
-    <dimen name="status_bar_padding_top">6dp</dimen>
+    <!-- the padding of the rounded corner -->
+    <dimen name="rounded_corner_content_padding">70px</dimen>
+    <dimen name="rounded_corner_radius">132px</dimen>
 
-    <!-- the padding on the start of the statusbar -->
-    <dimen name="status_bar_padding_start">1dp</dimen>
+    <!-- Physical buttons and fingerprint sensor location -->
+    <dimen name="keyguard_indication_margin_bottom_fingerprint_in_display">130dp</dimen>
+    <dimen name="kg_security_container_min_bottom_margin">725px</dimen>
+    <dimen name="physical_fingerprint_sensor_center_screen_location_y">1655px</dimen>
+    <dimen name="physical_power_button_center_screen_location_y">980px</dimen>
+    <dimen name="physical_volume_down_button_center_screen_location_y">740px</dimen>
+    <dimen name="physical_volume_up_button_center_screen_location_y">550px</dimen>
 
-    <!-- the padding on the end of the statusbar -->
-    <dimen name="status_bar_padding_end">16dp</dimen>
-
+    <!-- Margin of the carrier text on Keyguard -->
+    <dimen name="keyguard_carrier_text_margin">90px</dimen>
 </resources>
