@@ -122,6 +122,10 @@ PRODUCT_BOOT_JARS += \
     mediatek-telephony-base \
     mediatek-telephony-common\
 
+# Parts
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # Wi-Fi
 PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
