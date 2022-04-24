@@ -1,3 +1,11 @@
+# Bluetooth
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.bluetooth.bluetooth_audio_hal.disabled=true
+
+# Blurs
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.surface_flinger.supports_background_blur=1
+
 # IMS
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.dbg.volte_avail_ovr=1 \
@@ -27,7 +35,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Surfaceflinger
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-	debug.sf.latch_unsignaled=1
+    debug.sf.latch_unsignaled=1 \
+    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
+    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
+    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
 
 # Zygote
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
