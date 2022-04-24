@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <carrier_config_list>
+    <carrier_config mcc="460">
+        <boolean name="carrier_sa_mode_available_bool" value="false" />
+        <boolean name="carrier_disable_sa_mode_bool" value="false" />
+    </carrier_config>
     <carrier_config mcc="460" mnc="03,05,11,12">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_vt_available_bool" value="true" />

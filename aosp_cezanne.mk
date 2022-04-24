@@ -36,6 +36,6 @@ PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="cezanne-user 12 SP1A.210812.016 22.4.21 release-keys"
+    PRIVATE_BUILD_DESC="cezanne-user 12 SP1A.210812.016 V13.0.0.1.27.DEV release-keys"
 
-BUILD_FINGERPRINT := Redmi/cezanne/cezanne:12/SP1A.210812.016/22.4.21:user/release-keys
+BUILD_FINGERPRINT := Redmi/cezanne/cezanne:12/SP1A.210812.016/V13.0.0.1.27.DEV:user/release-keys
