@@ -1,3 +1,27 @@
+A buildable device tree for  Redmi K30 Ultra (codenamed "cezanne") , written by a beginner. It may contains many non-standard commits, Just ignore these please :)
+
+### Known issues
+- Always On Display
+- Fingerprint
+- Vibrator
+- Video (Take a video, screen recorder or play video)
+- Maybe more...
+
+Before starting the build, make sure you have commented out __the third line__ in `device/custom/sepolicy/common/private/property_context`
+```
+# Aux camera
+vendor.camera.aux.packageexcludelist   u:object_r:vendor_persist_camera_prop:s0
+# vendor.camera.aux.packagelist          u:object_r:vendor_persist_camera_prop:s0
+
+# Radio
+ro.telephony.use_old_mnc_mcc_format    u:object_r:telephony_config_prop:s0
+
+# Wi-Fi Display
+media.wfd.                             u:object_r:media_wfd_prop:s0
+```
+> Firmware used: https://bigota.d.miui.com/V13.0.0.1.27.DEV/miui_CEZANNE_V13.0.0.1.27.DEV_836ce3d15c_12.0.zip
+
+---
 Device configuration for Redmi K30 Ultra
 
 =========================================
