@@ -41,7 +41,7 @@ TARGET_SCREEN_WIDTH := 1080
 AB_OTA_UPDATER := false
 
 # VNDK
-PRODUCT_EXTRA_VNDK_VERSIONS := 31
+PRODUCT_EXTRA_VNDK_VERSIONS := 30
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -74,13 +74,15 @@ PRODUCT_PACKAGES += \
 
 # HIDL
 PRODUCT_PACKAGES += \
+    android.hidl.base@1.0 \
+    android.hidl.manager@1.0 \
     libhidltransport \
     libhwbinder
 
 # Init
 PRODUCT_PACKAGES += \
-    init.mt6889.rc \
-    fstab.mt6889
+    init.mt6885.rc \
+    fstab.mt6885
 
 # NFC
 PRODUCT_PACKAGES += \

@@ -1,6 +1,10 @@
 # APNs
 etc/apns-conf.xml:product/etc/apns-conf.xml
 
+# Alipay / WeChat Payment
+-app/IFAAService/IFAAService.apk
+-app/SoterService/SoterService.apk
+
 # Bluetooth (AptX)
 lib64/libaptX_encoder.so
 lib64/libaptXHD_encoder.so
@@ -10,42 +14,49 @@ lib64/libaptXHD_encoder.so
 lib/libem_support_jni.so
 lib64/libem_support_jni.so
 
-# IMS
+# MTK-IMS
+bin/vtservice
+etc/init/init.vtservice.rc
 -framework/mediatek-common.jar
 -framework/mediatek-framework.jar
 -framework/mediatek-ims-base.jar
 -framework/mediatek-ims-common.jar
+framework/mediatek-ims-extension-plugin.jar
+framework/mediatek-ims-legacy.jar
 -framework/mediatek-telecom-common.jar
 -framework/mediatek-telephony-base.jar
 -framework/mediatek-telephony-common.jar
--priv-app/ImsService/ImsService.apk
-bin/vtservice
-etc/init/init.vtservice.rc
-framework/mediatek-ims-extension-plugin.jar
-framework/mediatek-ims-legacy.jar
+lib/libcomutils.so
+lib/libimsma.so
+lib/libimsma_adapt.so
+lib/libimsma_rtp.so
+lib/libimsma_socketwrapper.so
+lib/libmtk_vt_service.so
 lib/libmtk_vt_wrapper.so
 lib/libmtkavenhancements.so
 lib/libmtkperf_client.so
+lib/libsignal.so
+lib/libsink.so
+lib/libsource.so
 lib/libvcodec_cap.so
 lib/libvcodec_capenc.so
-lib64/libcomutils.so
-lib64/libimsma.so
-lib64/libimsma_adapt.so
-lib64/libimsma_rtp.so
-lib64/libimsma_socketwrapper.so
-lib64/libmtk_vt_service.so
+lib/libvt_avsync.so
+lib/libsysenv_system.so
 lib64/libmtk_vt_wrapper.so
 lib64/libmtkavenhancements.so
 lib64/libmtkperf_client.so
-lib64/libsignal.so
-lib64/libsink.so
-lib64/libsource.so
-lib64/libsysenv_system.so
 lib64/libvcodec_cap.so
 lib64/libvcodec_capenc.so
-lib64/libvt_avsync.so
+lib64/libsysenv_system.so
+-priv-app/ImsService/ImsService.apk
 system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
+
+# OMX
+lib/libstagefright_omx.so:product/vendor_overlay/30/lib/libstagefright_omx.so
+lib/libstagefright_omx_utils.so:product/vendor_overlay/30/lib/libstagefright_omx_utils.so
+lib64/libstagefright_omx.so:product/vendor_overlay/30/lib64/libstagefright_omx.so
+lib64/libstagefright_omx_utils.so:product/vendor_overlay/30/lib64/libstagefright_omx_utils.so
 
 # Popup Camera Sound Effects
 media/audio/ui/popup_cangmen_down.ogg
