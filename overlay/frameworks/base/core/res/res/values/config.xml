@@ -90,6 +90,25 @@
      <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
      <bool name="config_dozeAlwaysOnEnabled">false</bool>
 
+    <!-- If true, the display will be shifted around in ambient mode. -->
+    <bool name="config_enableBurnInProtection">true</bool>
+
+    <!-- Specifies the maximum burn-in offset displacement from the center. If -1, no maximum value
+         will be used. -->
+    <integer name="config_burnInProtectionMaxRadius">70</integer>
+
+    <!-- Specifies the minimum burn-in offset horizontally. -->
+    <integer name="config_burnInProtectionMinHorizontalOffset">-15</integer>
+
+    <!-- Specifies the maximum burn-in offset horizontally. -->
+    <integer name="config_burnInProtectionMaxHorizontalOffset">15</integer>
+
+    <!-- Specifies the minimum burn-in offset vertically. -->
+    <integer name="config_burnInProtectionMinVerticalOffset">-40</integer>
+
+    <!-- Specifies the maximum burn-in offset vertically. -->
+    <integer name="config_burnInProtectionMaxVerticalOffset">40</integer>
+
     <!-- Flag specifying whether or not IMS will use the ImsResolver dynamically -->
      <bool name="config_dynamic_bind_ims">true</bool>
      <bool name="config_eap_sim_based_auth_supported">true</bool>
@@ -189,7 +208,7 @@
      <bool name="config_supportAudioSourceUnprocessed">false</bool>
 
     <!-- Whether device supports double tap to wake -->
-     <bool name="config_supportDoubleTapWake">false</bool>
+     <bool name="config_supportDoubleTapWake">true</bool>
 
     <!-- Boolean indicating if current platform supports HFP inband ringing -->
      <bool name="config_supportSystemNavigationKeys">true</bool>
@@ -445,44 +464,6 @@
         <item>4500</item>
     </array>
 
-    <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
-         percent. The length of this array is assumed to be one greater than
-         config_screenThresholdLevels. The brightening threshold is calculated as
-         screenBrightness * (1.0f + CONSTRAINT_VALUE). When the new screen brightness is higher
-         than this threshold, it is applied. See the config_screenThresholdLevels description for
-         how the constraint value is chosen. -->
-    <array name="config_screenBrighteningThresholds">
-        <item>@null</item>
-    </array>
-
-   <!-- Array of hysteresis constraint values for darkening, represented as tenths of a
-         percent. The length of this array is assumed to be one greater than
-         config_screenThresholdLevels. The darkening threshold is calculated as
-         screenBrightness * (1.0f - CONSTRAINT_VALUE). When the new screen brightness is lower than
-         this threshold, it is applied. See the config_screenThresholdLevels description for how
-         the constraint value is chosen. -->
-    <array name="config_screenDarkeningThresholds">
-        <item>@null</item>
-    </array>
-
-    <!-- Array of screen brightness threshold values. This is used for determining hysteresis
-         constraint values by calculating the index to use for lookup and then setting the
-         constraint value to the corresponding value of the array. The new brightening hysteresis
-         constraint value is the n-th element of config_screenBrighteningThresholds, and the new
-         darkening hysteresis constraint value is the n-th element of
-         config_screenDarkeningThresholds.
-         The (zero-based) index is calculated as follows: (MAX is the largest index of the array)
-         condition                       calculated index
-         value < level[0]                0
-         level[n] <= value < level[n+1]  n+1
-         level[MAX] <= value             MAX+1 -->
-    <array name="config_screenThresholdLevels">
-    </array>
-
-    <!-- The maximum range of gamma adjustment possible using the screen
-         auto-brightness adjustment setting. -->
-     <fraction name="config_autoBrightnessAdjustmentMaxGamma">150.0%</fraction>
-
     <!-- User activity timeout: Maximum screen dim duration as a percentage of screen off timeout.
     
          This resource is similar to config_maximumScreenDimDuration but the maximum
@@ -504,8 +485,8 @@
          when adapting to brighter or darker environments.  This parameter controls how quickly
          brightness changes occur in response to an observed change in light level that exceeds the
          hysteresis threshold. -->
-     <integer name="config_autoBrightnessBrighteningLightDebounce">4000</integer>
-     <integer name="config_autoBrightnessDarkeningLightDebounce">8000</integer>
+     <integer name="config_autoBrightnessBrighteningLightDebounce">2000</integer>
+     <integer name="config_autoBrightnessDarkeningLightDebounce">2000</integer>
 
     <!-- Light sensor event rate in milliseconds for automatic brightness control. -->
      <integer name="config_autoBrightnessLightSensorRate">250</integer>
@@ -523,25 +504,7 @@
          values in the config_screenBrightnessNits array.
          This array should be equal in size to config_screenBrightnessBacklight. -->
     <array name="config_screenBrightnessBacklight">
-        <item>@null</item>
         <item>1</item>
-        <item>10</item>
-        <item>15</item>
-        <item>30</item>
-        <item>45</item>
-        <item>60</item>
-        <item>75</item>
-        <item>90</item>
-        <item>105</item>
-        <item>120</item>
-        <item>135</item>
-        <item>150</item>
-        <item>165</item>
-        <item>180</item>
-        <item>195</item>
-        <item>210</item>
-        <item>225</item>
-        <item>240</item>
         <item>255</item>
     </array>
 
@@ -552,25 +515,7 @@
          brightness modes but only the maximum brightness value obtainable in a sustainable manner.
          This array should be equal in size to config_screenBrightnessBacklight -->
     <array name="config_screenBrightnessNits">
-        <item>@null</item>
         <item>4</item>
-        <item>22</item>
-        <item>30</item>
-        <item>68</item>
-        <item>95</item>
-        <item>133</item>
-        <item>165</item>
-        <item>192</item>
-        <item>218</item>
-        <item>255</item>
-        <item>290</item>
-        <item>326</item>
-        <item>352</item>
-        <item>384</item>
-        <item>399</item>
-        <item>422</item>
-        <item>432</item>
-        <item>442</item>
         <item>455</item>
     </array>
 
@@ -653,12 +598,12 @@
     <!-- Screen brightness used to dim the screen when the user activity
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-     <integer name="config_screenBrightnessDim">10</integer>
+     <integer name="config_screenBrightnessDim">5</integer>
 
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
          that can be set by the user. -->
-     <integer name="config_screenBrightnessDoze">1</integer>
+     <integer name="config_screenBrightnessDoze">7</integer>
 
     <!-- Shutdown if the battery temperature exceeds (this value * 0.1) Celsius. -->
      <integer name="config_shutdownBatteryTemperature">599</integer>
@@ -696,29 +641,6 @@
      <string name="config_wlan_data_service_package">com.android.phone</string>
      <string name="config_wlan_network_service_package">com.android.phone</string>
 
-
-    <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap -->
-    <integer-array name="config_keyboardTapVibePattern">
-        <item>0</item>
-        <item>55</item>
-    </integer-array>
-
-    <!-- Vibrator pattern for feedback about a long screen/key press -->
-    <integer-array name="config_longPressVibePattern">
-        <item>0</item>
-        <item>30</item>
-    </integer-array>
-
-    <!-- Vibrator pattern to be used as the default for notifications
-         that specify DEFAULT_VIBRATE.
-     -->
-    <integer-array name="config_defaultNotificationVibePattern">
-        <item>0</item>
-        <item>120</item>
-        <item>200</item>
-        <item>40</item>
-    </integer-array>
-
     <!-- Enables or disables haptic effect when the text insertion/selection handle is moved
          manually by the user. Off by default, since the expected haptic feedback may not be
          available on some devices. -->
@@ -729,32 +651,76 @@
          meanings. -->
     <integer name="config_defaultHapticFeedbackIntensity">3</integer>
 
-    <!-- The default intensity level for notification vibrations. See
-         Settings.System.NOTIFICATION_VIBRATION_INTENSITY more details on the constant values and
-         meanings. -->
-    <integer name="config_defaultNotificationVibrationIntensity">3</integer>
-
-    <!-- The default intensity level for ring vibrations. See
-         Settings.System.RING_VIBRATION_INTENSITY more details on the constant values and
-         meanings. -->
-    <integer name="config_defaultRingVibrationIntensity">3</integer>
-
-    <!-- Array of ConnectivityManager.TYPE_xxxx values allowable for tethering -->
-    <!-- Common options are [1, 4] for TYPE_WIFI and TYPE_MOBILE_DUN or
-    <!== [0,1,5,7] for TYPE_MOBILE, TYPE_WIFI, TYPE_MOBILE_HIPRI and TYPE_BLUETOOTH -->
-    <integer-array name="config_tether_upstream_types">
-        <item>1</item>
+    <!-- Vibrator pattern for feedback about a long screen/key press. -->
+    <integer-array name="config_longPressVibePattern">
         <item>0</item>
-        <item>5</item>
-        <item>7</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
     </integer-array>
 
-    <!-- Vibrator pattern for feedback about touching a virtual key -->
+    <!-- Vibrator pattern for feedback about touching a virtual key. -->
     <integer-array name="config_virtualKeyVibePattern">
         <item>0</item>
         <item>10</item>
         <item>20</item>
         <item>30</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for a very short but reliable vibration for soft keyboard tap. -->
+    <integer-array name="config_keyboardTapVibePattern">
+        <item>40</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback when selecting an hour/minute tick of a Clock -->
+    <integer-array name="config_clockTickVibePattern">
+        <item>125</item>
+        <item>30</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback when selecting a day/month/year date of a Calendar -->
+    <integer-array name="config_calendarDateVibePattern">
+        <item>125</item>
+        <item>30</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback about booting with safe mode enabled -->
+    <integer-array name="config_safeModeEnabledVibePattern">
+        <item>0</item>
+        <item>1</item>
+        <item>20</item>
+        <item>21</item>
+        <item>500</item>
+        <item>600</item>
+    </integer-array>
+
+    <!-- Vibrator pattern for feedback about hitting a scroll barrier -->
+    <integer-array name="config_scrollBarrierVibePattern">
+        <item>0</item>
+        <item>15</item>
+        <item>10</item>
+        <item>10</item>
+    </integer-array>
+
+    <!-- Vibrator pattern to be used as the default for notifications
+         that specify DEFAULT_VIBRATE.
+     -->
+    <integer-array name="config_defaultNotificationVibePattern">
+        <item>0</item>
+        <item>350</item>
+        <item>250</item>
+        <item>350</item>
+    </integer-array>
+
+    <!-- Vibrator pattern to be used as the default for notifications
+         that do not specify vibration but vibrate anyway because the device
+         is in vibrate mode.
+     -->
+    <integer-array name="config_notificationFallbackVibePattern">
+        <item>0</item>
+        <item>100</item>
+        <item>150</item>
+        <item>100</item>
     </integer-array>
 
     <!-- List of biometric sensors on the device, in decreasing strength. Consumed by AuthService
