@@ -126,7 +126,8 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+    $(DEVICE_PATH) \
+    hardware/xiaomi
 
 # System prop
 -include $(DEVICE_PATH)/system_prop.mk
