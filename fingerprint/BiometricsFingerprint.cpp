@@ -78,6 +78,7 @@ Return<uint64_t> BiometricsFingerprint::preEnroll() {
 
 Return<RequestStatus> BiometricsFingerprint::enroll(const hidl_array<uint8_t, 69>& hat, uint32_t gid, uint32_t timeoutSec) {
     LOG(ERROR) << "enroll()";
+    xiaomiDisplayFeatureService->setFeature(0, 20, 0, 255);
     return biometrics_2_1_service->enroll(hat, gid, timeoutSec);
 }
 
@@ -130,11 +131,29 @@ Return<void> BiometricsFingerprint::onFingerDown(uint32_t a, uint32_t b, float c
 
 Return<void> BiometricsFingerprint::onFingerUp() {
     LOG(ERROR) << "onFingerUp()";
-    xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
-    xiaomiDisplayFeatureService->setFeature(0, 20, 1, 255);
-    touchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 1);
+    touchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 0);
     xiaomiDisplayFeatureService->setFeature(0, 17, 0, 1);
+    return Void();
+}
+
+/* 
+ * For Xiaomi MTK Phone, we must call xiaomiDisplayFeatureService and
+ * touchFeatureService before fingerprint authorization start. So we 
+ * must merge the follow commit into your Android Source before use the
+ * following two methods.
+ * Commit [1]: https://github.com/mt6893/platform_frameworks_base/commit/83762869b625a81b23e9080cf9a4a9c3c7c47f9f
+ * Commit [2]: https://github.com/Octavi-OS/platform_hardware_interfaces/commit/7d663dba1d216e19c57f64f5567078f56b8fe0bb
+ * 
+ * @author xjl12
+*/
+Return<void> BiometricsFingerprint::onShowUdfpsOverlay() {
+    return Void();
+}
+
+Return<void> BiometricsFingerprint::onHideUdfpsOverlay() {
     set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_OFF);
+    xiaomiDisplayFeatureService->setFeature(0, 20, 1, 255);
+    xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
     return Void();
 }
 
