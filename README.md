@@ -8,9 +8,7 @@ cezanne: [@Xayah](https://github.com/XayahSuSuSu) , [@nzlov](https://github.com/
 and others contributed to it.
 
 ### Known issues
-- Auto-brightness
 - Volume adjustment when calling
-- FOD works but not perfectly when screen brightness lower than 30%
 - SELinux: Permissive
 - Maybe more...
 
