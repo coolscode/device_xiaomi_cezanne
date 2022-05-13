@@ -18,6 +18,10 @@
 <resources>
     <dimen name="status_bar_padding_top">2dp</dimen>
 
+    <!-- Burn-in protection -->
+    <dimen name="horizontal_max_swift">3.0dp</dimen>
+    <dimen name="vertical_max_swift">1.0dp</dimen>
+
     <!-- the padding of the rounded corner -->
     <dimen name="rounded_corner_content_padding">70px</dimen>
     <dimen name="rounded_corner_radius">132px</dimen>
@@ -32,4 +36,7 @@
 
     <!-- Margin of the carrier text on Keyguard -->
     <dimen name="keyguard_carrier_text_margin">90px</dimen>
+
+    <!-- UDFPS recognizing animation vertical position offset -->
+    <dimen name="udfps_animation_offset">35dp</dimen>
 </resources>

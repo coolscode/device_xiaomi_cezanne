@@ -1,0 +1,20 @@
+[
+  {
+    "repository": "android_hardware_xiaomi",
+    "target_path": "hardware/xiaomi"
+  },
+  {
+    "repository": "kernel_xiaomi_mt6885",
+    "target_path": "kernel/xiaomi/mt6885"
+  },
+  {
+    "repository": "proprietary_vendor_xiaomi_cezanne",
+    "target_path": "vendor/xiaomi/cezanne"
+  }
+]
+
+// Assume that you are at the root directory of the Android source.
+// git clone https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
+// git clone https://github.com/coolscode/kernel_xiaomi_mt6885 kernel/xiaomi/mt6885
+// git clone https://github.com/coolscode/proprietary_vendor_xiaomi_cezanne vendor/xiaomi/cezanne
+// If you want to save some space, use "--depth=1"

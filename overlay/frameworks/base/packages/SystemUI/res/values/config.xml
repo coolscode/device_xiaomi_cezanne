@@ -16,14 +16,18 @@
      vibrator is capable of subtle vibrations -->
     <bool name="config_vibrateOnIconAnimation">true</bool>
 
+    <!-- Burn in protection -->
+    <bool name="config_statusBarBurnInProtection">true</bool>
+    <integer name="config_shift_interval">15</integer>
+
     <!-- The radius of the enrollment progress bar, in dp -->
     <integer name="config_udfpsEnrollProgressBar" translatable="false">100</integer>
 
-    <!-- HBM type of UDFPS overlay.
-            0 - GLOBAL HBM
+	<!-- HBM type of UDFPS overlay.
+            0 - GLOBAL HBM 
             1 - LOCAL HBM
     -->
-    <integer name="config_udfps_hbm_type">0</integer>
+    <integer name="config_udfpsHbmType">0</integer>
 
     <!-- Udfps vendor code -->
     <integer name="config_udfps_vendor_code">22</integer>
