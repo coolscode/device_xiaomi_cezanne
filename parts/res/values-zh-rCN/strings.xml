@@ -44,16 +44,6 @@
     <string name="popup_camera_calibrate_failed">无法校准</string>
     <string name="popup_camera_calibrate_success">校准成功。你现在可以开启前置摄像头了。</string>
 
-    <!-- Thermal profiles -->
-    <string name="thermal_title">温控配置文件</string>
-    <string name="thermal_summary">调整每个应用的温控配置文件以获得最佳性能</string>
-    <string name="thermal_default">默认</string>
-    <string name="thermal_benchmark">基准测试</string>
-    <string name="thermal_browser">浏览器</string>
-    <string name="thermal_camera">相机</string>
-    <string name="thermal_dialer">拨号器</string>
-    <string name="thermal_gaming">游戏</string>
-
     <!-- Dirac settings -->
     <string name="dirac_title">米音</string>
     <string name="dirac_summary">使用米音和 Hi-Fi 来优化音质</string>
