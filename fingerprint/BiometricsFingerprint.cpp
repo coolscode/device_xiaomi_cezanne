@@ -119,7 +119,6 @@ Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, floa
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
-    set(DISPPARAM_PATH, DISPPARAM_HBM_UDFPS_OFF);
     touchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 0);
     xiaomiDisplayFeatureService->setFeature(0, 17, 0, 1);
     return Void();
