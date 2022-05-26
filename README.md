@@ -1,14 +1,17 @@
 A buildable device tree for the __Redmi K30 Ultra__ (codenamed _"cezanne"_) written by beginners, borrowing a lot from the RMX3031, chopin, atom and the original cezanne device tree. It may contains many non-standard commits, Just ignore these please :P
 
-❤ Thanks a lot to  
+💖 Thanks a lot to  
 > RMX3031: [@ManshuTyagi](https://github.com/ManshuTyagi) ,  
 chopin: [@Yuyuko](https://github.com/Yuyuko1024) ,  
 atom: [@HuaLiMao-AQ](https://github.com/HuaLiMao-AQ) , [@Jale Shaw](https://github.com/xjl12) ,  
 cezanne: [@Xayah](https://github.com/XayahSuSuSu) , [@nzlov](https://github.com/nzlov) , [@ZhcnPanda](https://github.com/ZhcnPanda) , [@Raspberry Kan](https://github.com/Raspberry-Monster)  
 and others contributed to it.
 
+#### A simple build guide for AOSP-based ROM on cezanne is in [Wiki](https://github.com/coolscode/device_xiaomi_cezanne/wiki) now
 ### Known issues
 - Volume adjustment when calling
+- Deep sleep (Only takes up half of the standby time) and no deep-sleep time when AOD is on
+- Udfps dimming may need to be improved
 - SELinux: Permissive
 - Maybe more...
 
