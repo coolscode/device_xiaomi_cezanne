@@ -15,6 +15,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.dbg.volte_avail_ovr=1 \
     persist.dbg.vt_avail_ovr=1
 
+# Iorap
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.device_config.runtime_native_boot.iorap_readahead_enable=true
+
 # NFC
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.nfc.disPowerSave=1 \
@@ -43,6 +47,12 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
     ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
     ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
+
+# ZRAM
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.zram.mark_idle_delay_mins=60 \
+    ro.zram.first_wb_delay_mins=1440 \
+    ro.zram.periodic_wb_delay_hours=24
 
 # Zygote
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \

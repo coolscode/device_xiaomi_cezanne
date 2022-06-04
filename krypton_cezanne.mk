@@ -21,11 +21,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device makefile
 $(call inherit-product, device/xiaomi/cezanne/device.mk)
 
-# Inherit some common Pixel-Experience stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit some common Krypton AOSP stuff.
+$(call inherit-product, vendor/krypton/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := aosp_cezanne
+PRODUCT_NAME := krypton_cezanne
 PRODUCT_DEVICE := cezanne
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := M2006J10C
@@ -35,7 +35,10 @@ PRODUCT_CHARACTERISTICS := nosdcard
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
+# GAPPS
+GAPPS_BUILD := true
+
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="cezanne-user 11 RP1A.200720.011 22.3.2 release-keys"
 
-BUILD_FINGERPRINT := Redmi/cezanne/cezanne:11/RP1A.200720.011/22.3.2:user/release-keys
+BUILD_FINGERPRINT := "google/raven/raven:12/SP2A.220505.002/8353555:user/release-keys"
