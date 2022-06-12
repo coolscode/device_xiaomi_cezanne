@@ -23,7 +23,7 @@ android_app_import {
 	},
 	product_specific: true,
 	privileged: true,
-	overrides: ["Camera2"],
+	overrides: ["Camera", "Camera2", "Snap"],
 }
 
 prebuilt_etc {
