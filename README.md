@@ -1,3 +1,4 @@
+## A simple build guide for AOSP-based ROM on _cezanne_ is in [Wiki](https://github.com/coolscode/device_xiaomi_cezanne/wiki) now!
 A buildable device tree for the __Redmi K30 Ultra__ (codenamed _"cezanne"_) written by beginners, borrowing a lot from the RMX3031, chopin, atom and the original cezanne device tree. It may contains many non-standard commits, Just ignore these please :P
 
 💖 Thanks a lot to  
@@ -7,11 +8,10 @@ atom: [@HuaLiMao-AQ](https://github.com/HuaLiMao-AQ) , [@Jale Shaw](https://gith
 cezanne: [@Xayah](https://github.com/XayahSuSuSu) , [@nzlov](https://github.com/nzlov) , [@ZhcnPanda](https://github.com/ZhcnPanda) , [@Raspberry Kan](https://github.com/Raspberry-Monster)  
 and others contributed to it.
 
-#### A simple build guide for AOSP-based ROM on cezanne is in [Wiki](https://github.com/coolscode/device_xiaomi_cezanne/wiki) now
 ### Known issues
-- Volume adjustment when calling
+- Volume adjustment when taking a call
 - Deep sleep (Only takes up half of the standby time) and no deep-sleep time when AOD is on
-- Udfps dimming may need to be improved
+- Power-off charging
 - SELinux: Permissive
 - Maybe more...
 
@@ -31,8 +31,10 @@ ro.telephony.use_old_mnc_mcc_format    u:object_r:telephony_config_prop:s0
 media.wfd.                             u:object_r:media_wfd_prop:s0
 ```
 
-> __Prebuilt vendor__ and __oss kernel__ used for now  
-Firmware: https://bigota.d.miui.com/V12.5.11.0.RJNCNXM/miui_CEZANNE_V12.5.11.0.RJNCNXM_30f7f0b596_11.0.zip
+__Prebuilt vendor__ and __oss kernel__ are used for now  
+Recommended firmware:
+> Recovery ROM: https://bigota.d.miui.com/V12.5.11.0.RJNCNXM/miui_CEZANNE_V12.5.11.0.RJNCNXM_30f7f0b596_11.0.zip  
+> Fastboot ROM: https://bigota.d.miui.com/V12.5.11.0.RJNCNXM/cezanne_images_V12.5.11.0.RJNCNXM_20220301.0000.00_11.0_cn_chinatelecom_39cae9b023.tgz
 
 If you have ideas to improve the device tree, open a pull request or join us at any time!
 
