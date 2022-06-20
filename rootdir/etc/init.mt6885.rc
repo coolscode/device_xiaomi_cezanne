@@ -19,6 +19,16 @@ on boot
     # ZRAM
     swapon_all /vendor/fstab.enableswap
 
+on charger
+    start charger
+
+service charger /system/bin/charger
+    class charger
+    user system
+    group system graphics input
+    capabilities SYS_BOOT
+    seclabel u:r:charger:s0
+
 service prop-adap-core-gsi /odm/bin/self-init gsicore
     class core
     user root

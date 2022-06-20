@@ -65,3 +65,6 @@ media/audio/ui/popup_muqin_down.ogg
 media/audio/ui/popup_muqin_up.ogg
 media/audio/ui/popup_yingyan_down.ogg
 media/audio/ui/popup_yingyan_up.ogg
+
+# Power-off charging daemon
+bin/charger

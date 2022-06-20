@@ -11,7 +11,6 @@ and others contributed to it.
 ### Known issues
 - Volume adjustment when taking a call
 - Deep sleep (Only takes up half of the standby time) and no deep-sleep time when AOD is on
-- Power-off charging
 - SELinux: Permissive
 - Maybe more...
 
