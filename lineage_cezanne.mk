@@ -50,6 +50,6 @@ TARGET_BOOT_ANIMATION_RES := 1080
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="cezanne-user 11 RP1A.200720.011 22.3.2 release-keys"
+    PRIVATE_BUILD_DESC="cezanne-user 11 RP1A.200720.011 V12.5.11.0 RJNCNXM release-keys"
 
-BUILD_FINGERPRINT := Redmi/cezanne/cezanne:11/RP1A.200720.011/22.3.2:user/release-keys
+BUILD_FINGERPRINT := Redmi/cezanne/cezanne:11/RP1A.200720.011/V12.5.11.0.RJNCNXM:user/release-keys

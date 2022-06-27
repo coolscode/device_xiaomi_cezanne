@@ -28,8 +28,8 @@ ro.telephony.use_old_mnc_mcc_format    u:object_r:telephony_config_prop:s0
 media.wfd.                             u:object_r:media_wfd_prop:s0
 ```
 
-> __Prebuilt vendor__ and __prebuilt kernel__ used for now  
-Firmware used: https://bigota.d.miui.com/22.3.2/miui_CEZANNE_22.3.2_71055969ed_11.0.zip
+> __Prebuilt vendor__ and __oss kernel__ used for now  
+Firmware: https://bigota.d.miui.com/V12.5.11.0.RJNCNXM/miui_CEZANNE_V12.5.11.0.RJNCNXM_30f7f0b596_11.0.zip
 
 If you have ideas to improve the device tree, open a pull request or join us at any time!
 

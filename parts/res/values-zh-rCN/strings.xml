@@ -45,6 +45,7 @@
     <string name="popup_camera_calibrate_success">校准成功。你现在可以开启前置摄像头了。</string>
 
     <!-- Dirac settings -->
+    <string name="dirac_enable">启用米音</string>
     <string name="dirac_title">米音</string>
     <string name="dirac_summary">使用米音和 Hi-Fi 来优化音质</string>
     <string name="dirac_headset_title">耳机类型</string>
@@ -88,4 +89,9 @@
     <string name="dirac_preset_country">乡村</string>
     <string name="dirac_preset_dance">舞蹈</string>
     <string name="dirac_preset_metal">金属</string>
+
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">清理扬声器</string>
+    <string name="clear_speaker_summary">播放一段约 30 秒的音频来清理扬声器</string>
+    <string name="clear_speaker_description">当扬声器被少量灰尘覆盖时，将音量调至最大运行 1-2 次。\n\n当扬声器充满灰尘时将扬声器朝下轻轻摇晃您的设备，运行 2-5 次。</string>
 </resources>
