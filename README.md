@@ -1,17 +1,27 @@
-A buildable device tree for  Redmi K30 Ultra (codenamed "cezanne") , written by a beginner. It may contains many non-standard commits, Just ignore these please :)
+## A simple build guide for AOSP-based ROM on _cezanne_ is in [Wiki](https://github.com/coolscode/device_xiaomi_cezanne/wiki) now!
+A buildable device tree for the __Redmi K30 Ultra__ (codenamed _"cezanne"_) written by beginners, borrowing a lot from the RMX3031, chopin, atom and the original cezanne device tree. It may contains many non-standard commits, Just ignore these please :P
+
+💖 Thanks a lot to  
+> RMX3031: [@ManshuTyagi](https://github.com/ManshuTyagi) ,  
+chopin: [@Yuyuko](https://github.com/Yuyuko1024) ,  
+atom: [@HuaLiMao-AQ](https://github.com/HuaLiMao-AQ) , [@Jale Shaw](https://github.com/xjl12) ,  
+cezanne: [@Xayah](https://github.com/XayahSuSuSu) , [@nzlov](https://github.com/nzlov) , [@ZhcnPanda](https://github.com/ZhcnPanda) , [@Raspberry Kan](https://github.com/Raspberry-Monster)  
+and others contributed to it.
 
 ### Known issues
-- Always On Display
-- Fingerprint
-- Vibrator
-- Video (Take a video, screen recorder or play video)
+- Volume adjustment when taking a call
+- Deep sleep (Only takes up half of the standby time) and no deep-sleep time when AOD is on
+- SELinux: Permissive
 - Maybe more...
 
-Before starting the build, make sure you have commented out __the third line__ in `device/custom/sepolicy/common/private/property_context`
+### NOTICE
+Before starting the build, make sure you have __commented out the third line__ in `device/custom/sepolicy/common/private/property_context`  
+If not, it will cause __bootloop__
+
 ```
 # Aux camera
 vendor.camera.aux.packageexcludelist   u:object_r:vendor_persist_camera_prop:s0
-# vendor.camera.aux.packagelist          u:object_r:vendor_persist_camera_prop:s0
+#vendor.camera.aux.packagelist          u:object_r:vendor_persist_camera_prop:s0
 
 # Radio
 ro.telephony.use_old_mnc_mcc_format    u:object_r:telephony_config_prop:s0
@@ -19,7 +29,14 @@ ro.telephony.use_old_mnc_mcc_format    u:object_r:telephony_config_prop:s0
 # Wi-Fi Display
 media.wfd.                             u:object_r:media_wfd_prop:s0
 ```
-> Firmware used: https://bigota.d.miui.com/V13.0.0.1.27.DEV/miui_CEZANNE_V13.0.0.1.27.DEV_836ce3d15c_12.0.zip
+
+__Prebuilt vendor__ and __oss kernel__ are used for now  
+Recommended firmware:
+> Recovery ROM: https://bigota.d.miui.com/V12.5.11.0.RJNCNXM/miui_CEZANNE_V12.5.11.0.RJNCNXM_30f7f0b596_11.0.zip  
+> Fastboot ROM: https://bigota.d.miui.com/V12.5.11.0.RJNCNXM/cezanne_images_V12.5.11.0.RJNCNXM_20220301.0000.00_11.0_cn_chinatelecom_39cae9b023.tgz
+
+If you have ideas to improve the device tree, open a pull request or join us at any time!
+
 
 ---
 Device configuration for Redmi K30 Ultra

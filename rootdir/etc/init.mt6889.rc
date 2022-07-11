@@ -3,6 +3,10 @@ on init
     setprop sys.usb.ffs.aio_compat 1
     setprop persist.vendor.vilte_support 0
 
+    # ZRAM setup
+    write /sys/block/zram0/comp_algorithm lz4
+    write /proc/sys/vm/page-cluster 0
+
 on post-fs-data
     # Services
     stop console
@@ -10,6 +14,20 @@ on post-fs-data
 on post-fs
 
 on property:sys.boot_completed=1
+
+on boot
+    # ZRAM
+    swapon_all /vendor/fstab.mt6889
+
+on charger
+    start charger
+
+service charger /system/bin/charger
+    class charger
+    user system
+    group system graphics input
+    capabilities SYS_BOOT
+    seclabel u:r:charger:s0
 
 service prop-adap-core-gsi /odm/bin/self-init gsicore
     class core

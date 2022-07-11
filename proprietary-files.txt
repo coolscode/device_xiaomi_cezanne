@@ -1,5 +1,7 @@
 # APNs
-etc/apns-conf.xml:product/etc/apns-conf.xml
+etc/apns-conf.xml
+etc/fiveG-apns-conf.xml
+etc/xcap-apns-conf.xml
 
 # Bluetooth (AptX)
 lib64/libaptX_encoder.so
@@ -7,8 +9,14 @@ lib64/libaptXHD_encoder.so
 
 # EngineerMode
 -priv-app/EngineerMode/EngineerMode.apk
+lib/libem_audio_jni.so
 lib/libem_support_jni.so
+lib/libem_usb_jni.so
+lib/libem_wifi_jni.so
+lib64/libem_audio_jni.so
 lib64/libem_support_jni.so
+lib64/libem_usb_jni.so
+lib64/libem_wifi_jni.so
 
 # IMS
 -framework/mediatek-common.jar
@@ -61,8 +69,5 @@ media/audio/ui/popup_muqin_up.ogg
 media/audio/ui/popup_yingyan_down.ogg
 media/audio/ui/popup_yingyan_up.ogg
 
-# OMX
-lib/libstagefright_omx.so:product/vendor_overlay/30/lib/libstagefright_omx.so
-lib/libstagefright_omx_utils.so:product/vendor_overlay/30/lib/libstagefright_omx_utils.so
-lib64/libstagefright_omx.so:product/vendor_overlay/30/lib64/libstagefright_omx.so
-lib64/libstagefright_omx_utils.so:product/vendor_overlay/30/lib64/libstagefright_omx_utils.so
+# Power-off charging daemon
+bin/charger
