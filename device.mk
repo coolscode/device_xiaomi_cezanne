@@ -73,9 +73,14 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.xiaomi_cezanne \
-    IFAAService \
-    SoterService
+    android.hardware.biometrics.fingerprint@2.3-service.xiaomi_cezanne
+
+# IFAA manager
+PRODUCT_PACKAGES += \
+    org.ifaa.android.manager
+
+PRODUCT_BOOT_JARS += \
+    org.ifaa.android.manager
 
 # HIDL
 PRODUCT_PACKAGES += \
