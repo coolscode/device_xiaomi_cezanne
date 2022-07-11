@@ -19,21 +19,11 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.device_config.runtime_native_boot.iorap_readahead_enable=true
 
-# Media Transcoding
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.fuse.transcode_default=false
-
 # NFC
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.nfc.disPowerSave=1 \
     persist.nfc.smartcard.recorder.enable=true \
     persist.sys.nfc.default=on
-
-# OMX
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    debug.stagefright.omx_default_rank.sw-audio=1 \
-    debug.stagefright.omx_default_rank=0 \
-    debug.stagefright.ccodec=0
 
 # Performance
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
