@@ -32,8 +32,8 @@ media.wfd.                             u:object_r:media_wfd_prop:s0
 
 __Prebuilt vendor__ and __oss kernel__ are used for now  
 Recommended firmware:
-> Recovery ROM: https://bigota.d.miui.com/V12.5.11.0.RJNCNXM/miui_CEZANNE_V12.5.11.0.RJNCNXM_30f7f0b596_11.0.zip  
-> Fastboot ROM: https://bigota.d.miui.com/V12.5.11.0.RJNCNXM/cezanne_images_V12.5.11.0.RJNCNXM_20220301.0000.00_11.0_cn_chinatelecom_39cae9b023.tgz
+> Recovery ROM: https://bigota.d.miui.com/V13.0.2.0.SJNCNXM/miui_CEZANNE_V13.0.2.0.SJNCNXM_3842b0be60_12.0.zip
+> Fastboot ROM: https://bigota.d.miui.com/V13.0.2.0.SJNCNXM/miui_CEZANNE_V13.0.2.0.SJNCNXM_3842b0be60_12.0.zip
 
 If you have ideas to improve the device tree, open a pull request or join us at any time!
 
