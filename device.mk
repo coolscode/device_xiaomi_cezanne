@@ -75,13 +75,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.3-service.xiaomi_cezanne
 
-# IFAA manager
-PRODUCT_PACKAGES += \
-    org.ifaa.android.manager
-
-PRODUCT_BOOT_JARS += \
-    org.ifaa.android.manager
-
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
@@ -105,17 +98,26 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nxp.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nxp.conf
 
-# Screen density
-PRODUCT_AAPT_CONFIG := xxxhdpi
-PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
-
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay
 
+# Parts
+PRODUCT_PACKAGES += \
+    XiaomiParts
+
 # Permissions
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/permissions/privapp-permissions-mediatek.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-mediatek.xml
+
+# Screen density
+PRODUCT_AAPT_CONFIG := xxxhdpi
+PRODUCT_AAPT_PREF_CONFIG := xxxhdpi
+
+# Shims
+PRODUCT_PACKAGES += \
+    ImsServiceBase \
+    libshim_vtservice
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
@@ -125,11 +127,6 @@ PRODUCT_SOONG_NAMESPACES += \
 # System prop
 -include $(DEVICE_PATH)/system_prop.mk
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
-
-# Shims
-PRODUCT_PACKAGES += \
-    ImsServiceBase \
-    libshim_vtservice
 
 # Telephony
 PRODUCT_BOOT_JARS += \
@@ -141,10 +138,7 @@ PRODUCT_BOOT_JARS += \
     mediatek-telephony-base \
     mediatek-telephony-common
 
-# Parts
-PRODUCT_PACKAGES += \
-    XiaomiParts
-
 # Wi-Fi
 PRODUCT_PACKAGES += \
-    TetheringConfigOverlay
+    TetheringConfigOverlay \
+    WifiOverlay
