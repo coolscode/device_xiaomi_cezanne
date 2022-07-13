@@ -10,7 +10,8 @@ and others contributed to it.
 
 ### Known issues
 - Volume adjustment when taking a call
-- Deep sleep (Only takes up half of the standby time) and no deep-sleep time when AOD is on
+- Deep sleep when AOD is on
+- Occasional high brightness on screen unlock via UDFPS
 - SELinux: Permissive
 - Maybe more...
 
@@ -30,10 +31,22 @@ ro.telephony.use_old_mnc_mcc_format    u:object_r:telephony_config_prop:s0
 media.wfd.                             u:object_r:media_wfd_prop:s0
 ```
 
-__Prebuilt vendor__ and __oss kernel__ are used for now  
+__Prebuilt vendor__ and __prebuilt kernel__ are used for now  
 Recommended firmware:
-> Recovery ROM: https://bigota.d.miui.com/V13.0.2.0.SJNCNXM/miui_CEZANNE_V13.0.2.0.SJNCNXM_3842b0be60_12.0.zip
-> Fastboot ROM: https://bigota.d.miui.com/V13.0.2.0.SJNCNXM/miui_CEZANNE_V13.0.2.0.SJNCNXM_3842b0be60_12.0.zip
+> Recovery ROM: https://bigota.d.miui.com/V13.0.2.0.SJNCNXM/miui_CEZANNE_V13.0.2.0.SJNCNXM_3842b0be60_12.0.zip  
+> Fastboot ROM: not released yet
+
+Recommended Recovery:
+> OrangeFox R12.1: https://github.com/coolscode/ofrp_device_xiaomi_cezanne/releases/tag/v1.1
+
+now the twrp recovery cannot handle the fbe encryption of android 12
+to access data partition in recovery, you have to get over encryption, elaborated methods are here
+1) get adb shell under recovery
+2) `mount /dev/block/dm-1 /vendor`
+3) edit __fstab.mt6889__, __fstab.mt6885__ and __fstab.emmc__ with the same modification:  
+`busybox vi /vendor/etc/fstab.mt6889`, `busybox vi /vendor/etc/fstab.mt6885`, `busybox vi /vendor/etc/fstab.emmc`  
+navigate to the 22nd line, the line starts with /dev/block/by-name/userdata
+at the tail of this line, change __'fileencryption'__ to __'encryptable'__
 
 If you have ideas to improve the device tree, open a pull request or join us at any time!
 
