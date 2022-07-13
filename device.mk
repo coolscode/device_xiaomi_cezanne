@@ -38,6 +38,7 @@ TARGET_SCREEN_WIDTH := 1080
 AB_OTA_UPDATER := false
 
 # VNDK
+PRODUCT_TARGET_VNDK_VERSION := 31
 PRODUCT_EXTRA_VNDK_VERSIONS := 31
 
 # Audio
@@ -86,6 +87,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.mt6889.rc \
     fstab.mt6889
+
+# Lights
+PRODUCT_PACKAGES += \
+    android.hardware.lights-service.cezanne
 
 # NFC
 PRODUCT_PACKAGES += \

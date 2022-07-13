@@ -18,6 +18,11 @@ on property:sys.boot_completed=1
 on boot
     # ZRAM
     swapon_all /vendor/fstab.mt6889
+    # brightness
+    chmod 0664 /sys/class/leds/lcd-backlight/max_brightness
+    chown system system /sys/class/leds/lcd-backlight/max_brightness
+    chmod 0664 /sys/class/leds/lcd-backlight/brightness
+    chown system system /sys/class/leds/lcd-backlight/brightness
 
 on charger
     start charger
