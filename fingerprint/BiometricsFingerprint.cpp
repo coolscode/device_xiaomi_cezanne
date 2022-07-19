@@ -49,7 +49,7 @@ static void set(const std::string& path, const T& value) {
 }
 
 static void threadboost(sp<IXiaomiFingerprint> txiaomiFingerprintService){
-    usleep(100000);
+    usleep(50000);
     set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_ON);
     txiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_FOD);
 }
@@ -111,16 +111,16 @@ Return<void> BiometricsFingerprint::onFingerDown(uint32_t, uint32_t, float, floa
 }
 
 Return<void> BiometricsFingerprint::onFingerUp() {
+    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     touchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 0);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
-    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     return Void();
 }
 
 Return<void> BiometricsFingerprint::onHideUdfpsOverlay() {
+    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     touchFeatureService->setTouchMode(TOUCH_FOD_ENABLE, 0);
     xiaomiFingerprintService->extCmd(COMMAND_NIT, PARAM_NIT_NONE);
-    set(DISPPARAM_PATH, DISPPARAM_HBM_FOD_OFF);
     return Void();
 }
 
