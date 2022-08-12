@@ -28,7 +28,7 @@
     <bool name="config_wifi_softap_ieee80211ac_supported">true</bool>
 
     <!-- Wifi driver supports WPA3 Simultaneous Authentication of Equals (WPA3-SAE) for softap -->
-    <bool translatable="false" name="config_wifi_softap_sae_supported">false</bool>
+    <bool translatable="false" name="config_wifi_softap_sae_supported">true</bool>
 
     <!-- Wifi driver supports IEEE80211AX for softap -->
     <bool name="config_wifiSoftapIeee80211axSupported">true</bool>
