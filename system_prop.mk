@@ -4,11 +4,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.bluetooth.bluetooth_audio_hal.disabled=true
+    persist.bluetooth.bluetooth_audio_hal.disabled=true \
+    persist.bluetooth.a2dp_offload.disabled=true \
+    ro.bluetooth.a2dp_offload.supported=false
 
 # Blurs
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.surface_flinger.supports_background_blur=1
+
+# Disable blur on app launch
+PRODUCT_SYSTEM_PROPERTIES += \
+    ro.launcher.blur.appLaunch=1
 
 # IMS
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -31,16 +37,30 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.mtk_perf_fast_start_win=1 \
     ro.mtk_perf_response_time=1
 
+# Phase Offsets
+PRODUCT_PRODUCT_PROPERTIES  += \
+    debug.sf.use_phase_offsets_as_durations=1 \
+    debug.sf.late.sf.duration=27600000 \
+    debug.sf.late.app.duration=20000000 \
+    debug.sf.early.sf.duration=27600000 \
+    debug.sf.early.app.duration=20000000 \
+    debug.sf.earlyGl.sf.duration=27600000 \
+    debug.sf.earlyGl.app.duration=20000000 \
+    debug.sf.hwc.min.duration=17000000
+
 # Privapp permissions whitelisting
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.control_privapp_permissions=log
 
 # Surfaceflinger
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+PRODUCT_SYSTEM_PROPERTIES += \
     debug.sf.latch_unsignaled=1 \
     ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
-    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
-    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000
+    debug.sf.frame_rate_multiple_threshold=120 \
+    ro.surface_flinger.set_display_power_timer_ms=1000 \
+    ro.surface_flinger.set_idle_timer_ms=500 \
+    ro.surface_flinger.set_touch_timer_ms=750 \
+    ro.surface_flinger.use_content_detection_for_refresh_rate=true
 
 # ZRAM
 PRODUCT_SYSTEM_PROPERTIES += \
