@@ -55,6 +55,22 @@ lib64/libvt_avsync.so
 system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 
+# MIUI Camera
+-system/priv-app/MiuiCamera/MiuiCamera.apk;OVERRIDES=Snap,GoogleCameraGo
+system/lib64/android.hardware.camera.common@1.0.so
+system/lib64/libcamera_algoup_jni.xiaomi.so
+system/lib64/libcamera_ispinterface_jni.xiaomi.so
+system/lib64/libcamera_mianode_jni.xiaomi.so
+system/lib64/libcameraservice.so
+system/lib64/libdoc_photo.so
+system/lib64/libdoc_photo_c++_shared.so
+system/lib64/libhidltransport.so
+system/lib64/libmotion_photo.so
+system/lib64/libmotion_photo_c++_shared.so
+system/lib64/libmotion_photo_mace.so
+system/lib64/vendor.mediatek.hardware.camera.isphal@1.0.so
+system_ext/lib64/vendor.mediatek.hardware.camera.atms@1.0.so
+
 # Popup Camera Sound Effects
 media/audio/ui/popup_cangmen_down.ogg
 media/audio/ui/popup_cangmen_up.ogg
