@@ -28,7 +28,7 @@ $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 PRODUCT_NAME := aosp_cezanne
 PRODUCT_DEVICE := cezanne
 PRODUCT_BRAND := Redmi
-PRODUCT_MODEL := M2006J10C
+PRODUCT_MODEL := Redmi K30 Ultra
 PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_CHARACTERISTICS := nosdcard
