@@ -52,9 +52,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     CameraGo
 
-PRODUCT_COPY_FILES += \
-    hardware/interfaces/camera/provider/2.4/default/android.hardware.camera.provider@2.4-service_64.rc:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/init/android.hardware.camera.provider@2.4-service_64.rc
-
 # Dex
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Settings \
@@ -91,6 +88,10 @@ PRODUCT_PACKAGES += \
 # Lights
 PRODUCT_PACKAGES += \
     android.hardware.lights-service.cezanne
+
+# MtkInCallService
+PRODUCT_PACKAGES += \
+    MtkInCallService
 
 # NFC
 PRODUCT_PACKAGES += \
