@@ -25,6 +25,10 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.device_config.runtime_native_boot.iorap_readahead_enable=true
 
+# MIUI Camera Lab Options
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    camera.lab.options=true
+
 # NFC
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.nfc.disPowerSave=1 \
