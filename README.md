@@ -13,6 +13,7 @@ and many others contributed to it.
 - Deep sleep when AOD is on
 - Occasional high brightness on screen unlock via UDFPS
 - Power-off Charging
+- DT2W
 - SELinux: Permissive
 - Maybe more...
 
