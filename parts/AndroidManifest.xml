@@ -16,6 +16,7 @@
      limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="org.lineageos.settings"
     android:versionCode="1"
     android:versionName="1.0"
@@ -35,6 +36,12 @@
     <application
         android:label="@string/device_settings_app_name"
         android:persistent="true">
+
+        <!-- Override duplicate authorities -->
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            tools:replace="android:authorities" />
 
         <receiver android:name=".BootCompletedReceiver">
             <intent-filter android:priority="1000">
