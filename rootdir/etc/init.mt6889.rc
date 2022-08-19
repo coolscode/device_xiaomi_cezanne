@@ -6,6 +6,7 @@ on init
     mount none /system/etc/fstab.mt6889 /vendor/etc/fstab.mt6889 bind
     # Bind mount the config file with the one in /vendor/etc/
     mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio_policy_configuration.xml bind
+    mount none /system/etc/powerscntbl.xml /vendor/etc/powerscntbl.xml bind
     # Bind mount the lights HAL with the one in /vendor/bin/hw/
     mount none /system/bin/hw/android.hardware.lights-service.mediatek /vendor/bin/hw/android.hardware.lights-service.mediatek bind
 
