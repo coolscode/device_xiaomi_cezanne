@@ -11,25 +11,20 @@ and many others contributed to it.
 ### Known issues
 - Hands-free volume adjustment when taking a call
 - Deep sleep when AOD is on
-- Occasional high brightness on screen unlock via UDFPS
+- UDFPS
+- Bluetooth audio
 - Power-off Charging
+- DT2W
 - SELinux: Permissive
 - Maybe more...
 
 ### NOTICE
-Before starting the build, make sure you have __commented out the third line__ in `device/custom/sepolicy/common/private/property_context`  
-If not, it will cause __bootloop__
-
+__Before starting the build, make sure you have applied [patches](https://github.com/coolscode/patches) for source code with__ 
 ```
-# Aux camera
-vendor.camera.aux.packageexcludelist   u:object_r:vendor_persist_camera_prop:s0
-#vendor.camera.aux.packagelist          u:object_r:vendor_persist_camera_prop:s0
-
-# Radio
-ro.telephony.use_old_mnc_mcc_format    u:object_r:telephony_config_prop:s0
-
-# Wi-Fi Display
-media.wfd.                             u:object_r:media_wfd_prop:s0
+git clone https://github.com/coolscode/patches
+```
+```
+bash patches/apply.sh acme
 ```
 
 __Prebuilt vendor__ and __prebuilt kernel__ are used for now  
@@ -38,9 +33,9 @@ Recommended firmware:
 > Fastboot ROM: not released yet
 
 Recommended Recovery:
-> OrangeFox R12.1: https://github.com/coolscode/ofrp_device_xiaomi_cezanne/releases
+> OrangeFox R12.1: https://github.com/coolscode/ofrp_device_xiaomi_cezanne/releases  
 
-__Now the OrangeFox Recovery can handle the fbe encryption of android 12!__
+__Now the OrangeFox Recovery cannot handle the fbe encryption of android 13. Prepare a OTG-USB storage or use adb sideload to flash packages for now!__
 
 If you have ideas to improve the device tree, open a pull request or join us at any time!
 

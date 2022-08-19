@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/aosp_cezanne.mk
+    $(LOCAL_DIR)/acme_cezanne.mk

@@ -21,11 +21,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from device makefile
 $(call inherit-product, device/xiaomi/cezanne/device.mk)
 
-# Inherit some common Pixel-Experience stuff.
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+# Inherit from the AcmeUI configuration.
+$(call inherit-product, vendor/acme/config/mobile.mk)
 
 # Device identifier. This must come after all inclusions.
-PRODUCT_NAME := aosp_cezanne
+PRODUCT_NAME := acme_cezanne
 PRODUCT_DEVICE := cezanne
 PRODUCT_BRAND := Redmi
 PRODUCT_MODEL := M2006J10C
@@ -41,3 +41,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     PRIVATE_BUILD_DESC="cezanne-user 12 SP1A.210812.016 V13.0.3.0.SJNCNXM release-keys"
 
 BUILD_FINGERPRINT := Redmi/cezanne/cezanne:12/SP1A.210812.016/V13.0.3.0.SJNCNXM:user/release-keys
+
+WITH_GMS := true
