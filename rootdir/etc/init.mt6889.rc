@@ -2,6 +2,12 @@ on init
     mount none /vendor/lost+found /vendor/overlay bind
     setprop sys.usb.ffs.aio_compat 1
     setprop persist.vendor.vilte_support 0
+    # Bind mount the fstab file with the one in /vendor/etc/
+    mount none /system/etc/fstab.mt6889 /vendor/etc/fstab.mt6889 bind
+    # Bind mount the config file with the one in /vendor/etc/
+    mount none /system/etc/audio_policy_configuration.xml /vendor/etc/audio_policy_configuration.xml bind
+    # Bind mount the lights HAL with the one in /vendor/bin/hw/
+    mount none /system/bin/hw/android.hardware.lights-service.mediatek /vendor/bin/hw/android.hardware.lights-service.mediatek bind
 
     # ZRAM setup
     write /sys/block/zram0/comp_algorithm lz4
@@ -20,11 +26,6 @@ on property:sys.boot_completed=1
     write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor "schedutil"
     # start EAS+
     write /sys/devices/system/cpu/eas/enable 1
-    # brightness
-    chmod 0664 /sys/class/leds/lcd-backlight/max_brightness
-    chown system system /sys/class/leds/lcd-backlight/max_brightness
-    chmod 0664 /sys/class/leds/lcd-backlight/brightness
-    chown system system /sys/class/leds/lcd-backlight/brightness
 
 on charger
     start charger
