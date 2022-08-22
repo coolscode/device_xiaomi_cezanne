@@ -18,7 +18,7 @@
 ]
 
 // Assume that you are at the root directory of the Android source.
-// git clone https://github.com/AcmeUI-Devices/android_hardware_xiaomi AcmeUI-Devices/xiaomi
+// git clone https://github.com/AcmeUI-Devices/android_hardware_xiaomi hardware/xiaomi
 // git clone https://github.com/coolscode/kernel_xiaomi_mt6885 kernel/xiaomi/mt6885
 // git clone https://github.com/coolscode/proprietary_vendor_xiaomi_cezanne vendor/xiaomi/cezanne -b T
 // git clone https://github.com/AcmeUI-Devices/android_packages_apps_GCamGOPrebuilt packages/apps/GCamGOPrebuilt
