@@ -14,10 +14,10 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.biometrics.fingerprint@2.3-service.xiaomi_cezanne",
+    name: "android.hardware.biometrics.fingerprint@2.3-service.cezanne",
     relative_install_path: "hw",
-    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.3-service.xiaomi_cezanne.xml"],
-    init_rc: ["android.hardware.biometrics.fingerprint@2.3-service.xiaomi_cezanne.rc"],
+    vintf_fragments: ["android.hardware.biometrics.fingerprint@2.3-service.cezanne.xml"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.3-service.cezanne.rc"],
     defaults: ["hidl_defaults"],
     srcs: [
         "service.cpp",
@@ -41,7 +41,7 @@ cc_binary {
 }
 
 cc_library_static {
-    name: "libudfps_extension.xiaomi_cezanne",
+    name: "libudfps_extension.cezanne",
     srcs: ["UdfpsExtension.cpp"],
     include_dirs: [
         "frameworks/native/services/surfaceflinger/CompositionEngine/include"

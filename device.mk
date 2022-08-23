@@ -71,7 +71,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.xiaomi_cezanne
+    android.hardware.biometrics.fingerprint@2.3-service.cezanne
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -87,7 +87,7 @@ PRODUCT_PACKAGES += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.lights-service.mediatek
+    android.hardware.lights-service.cezanne
 
 # # MIUI Camera
 # PRODUCT_COPY_FILES += \

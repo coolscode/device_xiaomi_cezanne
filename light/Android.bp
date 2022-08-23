@@ -13,8 +13,8 @@
 // limitations under the License.
 
 cc_binary {
-    name: "android.hardware.lights-service.mediatek",
-    init_rc: ["android.hardware.lights-service.mediatek.rc"],
+    name: "android.hardware.lights-service.cezanne",
+    init_rc: ["android.hardware.lights-service.cezanne.rc"],
     relative_install_path: "hw",
     shared_libs: [
         "libbase",
