@@ -85,6 +85,6 @@ void load_miuicamera_properties() {
 void vendor_load_properties() {
     load_dalvik_properties();
     load_miuicamera_properties();
-
+    property_override("ro.product.marketname", "Redmi K30 Ultra");
     property_override("ro.oem_unlock_supported", "0");
 }
