@@ -2,10 +2,6 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.force_no_blanking=true
 
-# Bluetooth
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.bluetooth.bluetooth_audio_hal.disabled=true
-
 # Blurs
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.surface_flinger.supports_background_blur=1
