@@ -42,4 +42,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 
 BUILD_FINGERPRINT := Redmi/cezanne/cezanne:12/SP1A.210812.016/V13.0.3.0.SJNCNXM:user/release-keys
 
-WITH_GMS := true
+WITH_GMS_CORE := true
