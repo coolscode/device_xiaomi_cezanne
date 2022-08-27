@@ -48,6 +48,10 @@ PRODUCT_PRODUCT_PROPERTIES  += \
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.control_privapp_permissions=log
 
+# Silence gralloc4 logspam
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.log.tag.gralloc4=S
+
 # Surfaceflinger
 PRODUCT_SYSTEM_PROPERTIES += \
     debug.sf.latch_unsignaled=1 \
