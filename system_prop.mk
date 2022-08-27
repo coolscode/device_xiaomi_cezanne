@@ -4,9 +4,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.bluetooth.bluetooth_audio_hal.disabled=true \
-    persist.bluetooth.a2dp_offload.disabled=true \
-    ro.bluetooth.a2dp_offload.supported=false
+    persist.bluetooth.bluetooth_audio_hal.disabled=true
 
 # Blurs
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
@@ -32,12 +30,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # MIUI Camera Lab Options
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     camera.lab.options=true
-
-# NFC
-PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
-    persist.sys.nfc.disPowerSave=1 \
-    persist.nfc.smartcard.recorder.enable=true \
-    persist.sys.nfc.default=on
 
 # Performance
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
