@@ -2,28 +2,33 @@
 A buildable device tree for the __Redmi K30 Ultra__ (codenamed _"cezanne"_) written by beginners, borrowing a lot from the RMX3031, chopin, atom and the original cezanne device tree. It may contains many non-standard commits, Just ignore these please :P
 
 💖 Thanks a lot to  
-> RMX3031: [@ManshuTyagi](https://github.com/ManshuTyagi) ,  
+> RMX3031: [@ManshuTyagi](https://github.com/ManshuTyagi) , [@Nishant Kumar](https://github.com/nishant6342) ,  
 chopin: [@Yuyuko](https://github.com/Yuyuko1024) ,  
 atom: [@HuaLiMao-AQ](https://github.com/HuaLiMao-AQ) , [@Jale Shaw](https://github.com/xjl12) ,  
-cezanne: [@Xayah](https://github.com/XayahSuSuSu) , [@nzlov](https://github.com/nzlov) , [@ZhcnPanda](https://github.com/ZhcnPanda) , [@Raspberry Kan](https://github.com/Raspberry-Monster)  
+cezanne: [@Xayah](https://github.com/XayahSuSuSu) , [@nzlov](https://github.com/nzlov) , [@ZhcnPanda](https://github.com/ZhcnPanda) , [@Raspberry Kan](https://github.com/Raspberry-Monster) ,  
+xaga: [@Wbscript](https://github.com/wbs306) ,  
+rubens: [@YuKongA](https://github.com/YuKongA) ,  
+RMX2020: [@Sarthak Roy](https://github.com/sarthakroy2002) ,   
+RM6785: [@ѕαмαя νιѕρυтє](https://github.com/SamarV-121) ,  
+begonia: [@Simone Esposito](https://github.com/DarkJoker360) ,  [@Zinadin Zidan](https://github.com/ZIDAN44) ,  
+cannon: [@LinkBoi00](https://github.com/LinkBoi00) , [@Vaisakh Murali](https://github.com/mvaisakh) ,  
+ares: [@Tkpointz](https://github.com/Tkpointz) , [@SagarMakhar](https://github.com/SagarMakhar) ,  
+Phh-Treble: [@Pierre-Hugues HUSSON](https://github.com/phhusson)  
 and many others contributed to it.
 
 ### Known issues
+- Bluetooth audio (new)
 - Hands-free volume adjustment when taking a call
 - Deep sleep when AOD is on
-- UDFPS
-- Bluetooth audio
-- Power-off Charging
-- DT2W
+- Power-off Charging frame
+- DT2W & DC-Dimming
 - SELinux: Permissive
 - Maybe more...
 
 ### NOTICE
-__Before starting the build, make sure you have applied [patches](https://github.com/coolscode/patches) for source code with__ 
+__Before starting the build, make sure you have applied [patches](https://github.com/coolscode/patches) for [AcmeUI](https://github.com/AcmeUI) (branch 'taffy') source code with__ 
 ```
 git clone https://github.com/coolscode/patches
-```
-```
 bash patches/apply.sh acme
 ```
 
@@ -35,7 +40,7 @@ Recommended firmware:
 Recommended Recovery:
 > OrangeFox R12.1: https://github.com/coolscode/ofrp_device_xiaomi_cezanne/releases  
 
-__Now the OrangeFox Recovery cannot handle the fbe encryption of android 13. Prepare a OTG-USB storage or use adb sideload to flash packages for now!__
+__Now the OrangeFox Recovery cannot handle the fbe encryption of android 13. Prepare an OTG-USB storage or use adb sideload to flash packages for now!__
 
 If you have ideas to improve the device tree, open a pull request or join us at any time!
 
