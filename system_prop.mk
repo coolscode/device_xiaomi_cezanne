@@ -10,10 +10,6 @@ PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.config.vc_call_vol_steps=7
 
-# Disable blur on app launch
-PRODUCT_SYSTEM_PROPERTIES += \
-    ro.launcher.blur.appLaunch=1
-
 # IMS
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.dbg.volte_avail_ovr=1 \
