@@ -1,4 +1,3 @@
-## A simple build guide for AOSP-based ROM on _cezanne_ is in [Wiki](https://github.com/coolscode/device_xiaomi_cezanne/wiki) now!
 A buildable device tree for the __Redmi K30 Ultra__ (codenamed _"cezanne"_) written by beginners, borrowing a lot from the RMX3031, chopin, atom and the original cezanne device tree. It may contains many non-standard commits, Just ignore these please :P
 
 💖 Thanks a lot to  
@@ -13,6 +12,7 @@ RM6785: [@ѕαмαя νιѕρυтє](https://github.com/SamarV-121) ,
 begonia: [@Simone Esposito](https://github.com/DarkJoker360) ,  [@Zinadin Zidan](https://github.com/ZIDAN44) ,  
 cannon: [@LinkBoi00](https://github.com/LinkBoi00) , [@Vaisakh Murali](https://github.com/mvaisakh) ,  
 ares: [@Tkpointz](https://github.com/Tkpointz) , [@SagarMakhar](https://github.com/SagarMakhar) ,  
+thyme: [@Lynnrin](https://github.com/LynnrinChan),  
 Phh-Treble: [@Pierre-Hugues HUSSON](https://github.com/phhusson)  
 and many others contributed to it.
 
@@ -21,7 +21,6 @@ and many others contributed to it.
 - Deep sleep when AOD is on
 - Power-off Charging frame
 - DT2W & DC-Dimming
-- SELinux: Permissive
 - Maybe more...
 
 ### NOTICE
