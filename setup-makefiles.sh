@@ -18,10 +18,8 @@
 
 set -e
 
-export DEVICE=cezanne
-export VENDOR=xiaomi
-
-INITIAL_COPYRIGHT_YEAR=2022
+DEVICE=cezanne
+VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
@@ -36,14 +34,18 @@ if [ ! -f "${HELPER}" ]; then
 fi
 source "${HELPER}"
 
-# Initialize the helper for device
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false
+# Initialize the helper
+setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 
-# Copyright headers and guards
-write_headers "cezanne"
+# Warning headers and guards
+write_headers
 
-# The standard blobs
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
+
+VIBRATOR_XML="vendor_overlay/31/etc/vintf/manifest/vendor.xiaomi.hardware.vibratorfeature.service.xml"
+printf '\n%s\n' "PRODUCT_COPY_FILES += \\" >> "$PRODUCTMK"
+printf '    %s/proprietary/%s:$(TARGET_COPY_OUT_PRODUCT)/%s\n' \
+                "$OUTDIR" "product/$VIBRATOR_XML" "$VIBRATOR_XML" >> "$PRODUCTMK"
 
 # Finish
 write_footers

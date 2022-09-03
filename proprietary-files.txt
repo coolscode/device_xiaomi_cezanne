@@ -85,3 +85,7 @@ media/audio/ui/popup_yingyan_up.ogg
 
 # Power-off charging daemon
 bin/charger
+
+# Vibrator
+vendor/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service:product/vendor_overlay/31/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service
+vendor/etc/vintf/manifest/vendor.xiaomi.hardware.vibratorfeature.service.xml:product/vendor_overlay/31/etc/vintf/manifest/vendor.xiaomi.hardware.vibratorfeature.service.xml

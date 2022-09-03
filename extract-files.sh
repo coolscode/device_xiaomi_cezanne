@@ -18,14 +18,14 @@
 
 set -e
 
-export DEVICE=cezanne
-export VENDOR=xiaomi
+DEVICE=cezanne
+VENDOR=xiaomi
 
 # Load extract_utils and do some sanity checks
 MY_DIR="${BASH_SOURCE%/*}"
 if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
-ANDROID_ROOT="${MY_DIR}"/../../..
+ANDROID_ROOT="${MY_DIR}/../../.."
 
 HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
@@ -33,14 +33,6 @@ if [ ! -f "${HELPER}" ]; then
     exit 1
 fi
 source "${HELPER}"
-
-function blob_fixup {
-    case "$1" in
-        lib/libsink.so)
-            "$PATCHELF" --add-needed "libshim_vtservice.so" "$2"
-            ;;
-    esac
-}
 
 # Default to sanitizing the vendor folder before extraction
 CLEAN_VENDOR=true
@@ -71,8 +63,22 @@ if [ -z "${SRC}" ]; then
     SRC="adb"
 fi
 
-# Initialize the helper for device
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true "${CLEAN_VENDOR}"
+function blob_fixup() {
+    case "${1}" in
+        lib64/libsink.so)
+            "${PATCHELF}" --add-needed "libshim_vtservice.so" "${2}"
+            ;;
+        product/vendor_overlay/31/bin/hw/vendor.xiaomi.hardware.vibratorfeature.service)
+            sed -i "s/\x00\x2F\x76\x69\x62\x72\x61\x74\x6F\x72\x66\x65\x61\x74\x75\x72\x65\x00/\x00\x2F\x64\x65\x66\x61\x75\x6C\x74\x00\x00\x00\x00\x00\x00\x00\x00\x00/g" "${2}"
+            ;;
+        product/vendor_overlay/31/etc/vintf/manifest/vendor.xiaomi.hardware.vibratorfeature.service.xml)
+            sed -i "s/vibratorfeature/default/g" "${2}"
+            ;;
+    esac
+}
+
+# Initialize the helper
+setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" false "${CLEAN_VENDOR}"
 
 extract "${MY_DIR}/proprietary-files.txt" "${SRC}" \
         "${KANG}" --section "${SECTION}"

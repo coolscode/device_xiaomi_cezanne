@@ -64,7 +64,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.3-service.xiaomi_cezanne
+    android.hardware.biometrics.fingerprint@2.3-service.cezanne
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -131,10 +131,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_SOONG_NAMESPACES += \
     $(DEVICE_PATH) \
     hardware/xiaomi
-
-# System prop
--include $(DEVICE_PATH)/system_prop.mk
-PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Telephony
 PRODUCT_BOOT_JARS += \
