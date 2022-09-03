@@ -1,0 +1,18 @@
+# sysfs
+type sysfs_devfreq_file, fs_type, sysfs_type;
+type vendor_sysfs_displayfeature, fs_type, sysfs_type;
+type sysfs_usb_supply, sysfs_type, fs_type;
+type vendor_sysfs_graphics, sysfs_type, fs_type;
+type sysfs_graphics, sysfs_type, fs_type;
+type sysfs_kgsl, sysfs_type, fs_type;
+type sysfs_led_lcd_bl, sysfs_type, fs_type;
+type sysfs_rgb_led, sysfs_type, fs_type;
+
+# dev
+type touchfeature_device, dev_type;
+
+# firmware
+type adsprpcd_file, file_type;
+type bt_firmware_file, file_type;
+type firmware_file, file_type;
+type persist_file, file_type;

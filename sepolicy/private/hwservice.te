@@ -1,0 +1,5 @@
+type hal_display_color_hwservice, hwservice_manager_type;
+type hal_displayfeature_xiaomi_hwservice, hwservice_manager_type;
+type hal_touchfeature_xiaomi_hwservice, hwservice_manager_type;
+type vendor_hal_fingerprint_hwservice_xiaomi, hwservice_manager_type;
+type hal_mlipay_hwservice, hwservice_manager_type;

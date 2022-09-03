@@ -1,0 +1,26 @@
+type hal_fingerprint_cezanne, coredomain, domain;
+hal_server_domain(hal_fingerprint_cezanne, hal_fingerprint)
+
+type hal_fingerprint_cezanne_exec, exec_type, system_file_type, file_type;
+init_daemon_domain(hal_fingerprint_cezanne)
+
+# Allow binder communication with hal_displayfeature_xiaomi_default
+binder_call(hal_fingerprint_cezanne, hal_displayfeature_xiaomi_default)
+binder_call(hal_fingerprint_cezanne, hal_touchfeature_xiaomi_default)
+binder_call(hal_fingerprint_cezanne, hal_fingerprint)
+
+# Allow hal_fingerprint_cezanne to find hal_displayfeature_xiaomi_hwservice
+allow hal_fingerprint_cezanne hal_displayfeature_xiaomi_hwservice:hwservice_manager find;
+
+# Allow hal_fingerprint_cezanne to find hal_fingerprint_hwservice_xiaomi
+allow hal_fingerprint_cezanne vendor_hal_fingerprint_hwservice_xiaomi:hwservice_manager find;
+
+allow hal_fingerprint_cezanne hal_touchfeature_xiaomi_hwservice:hwservice_manager find;
+
+allow hal_fingerprint_cezanne vendor_sysfs_graphics:file rw_file_perms;
+allow hal_fingerprint_cezanne vendor_sysfs_graphics:chr_file rw_file_perms;
+
+allow hal_fingerprint_cezanne touchfeature_device:chr_file rw_file_perms;
+
+# Allow access to the hals
+hal_client_domain(hal_fingerprint_cezanne, hal_fingerprint)
