@@ -10,6 +10,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     ro.surface_flinger.supports_background_blur=1
 
+# Charger
+ro.charger.enable_suspend=true
+
 # Disable blur on app launch
 PRODUCT_SYSTEM_PROPERTIES += \
     ro.launcher.blur.appLaunch=1
