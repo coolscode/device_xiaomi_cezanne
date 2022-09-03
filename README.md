@@ -2,35 +2,33 @@
 A buildable device tree for the __Redmi K30 Ultra__ (codenamed _"cezanne"_) written by beginners, borrowing a lot from the RMX3031, chopin, atom and the original cezanne device tree. It may contains many non-standard commits, Just ignore these please :P
 
 💖 Thanks a lot to  
-> RMX3031: [@ManshuTyagi](https://github.com/ManshuTyagi) ,  
+> RMX3031: [@ManshuTyagi](https://github.com/ManshuTyagi) , [@Nishant Kumar](https://github.com/nishant6342) ,  
 chopin: [@Yuyuko](https://github.com/Yuyuko1024) ,  
 atom: [@HuaLiMao-AQ](https://github.com/HuaLiMao-AQ) , [@Jale Shaw](https://github.com/xjl12) ,  
-cezanne: [@Xayah](https://github.com/XayahSuSuSu) , [@nzlov](https://github.com/nzlov) , [@ZhcnPanda](https://github.com/ZhcnPanda) , [@Raspberry Kan](https://github.com/Raspberry-Monster)  
+cezanne: [@Xayah](https://github.com/XayahSuSuSu) , [@nzlov](https://github.com/nzlov) , [@ZhcnPanda](https://github.com/ZhcnPanda) , [@Raspberry Kan](https://github.com/Raspberry-Monster) ,  
+xaga: [@Wbscript](https://github.com/wbs306) ,  
+rubens: [@YuKongA](https://github.com/YuKongA) ,  
+RMX2020: [@Sarthak Roy](https://github.com/sarthakroy2002) ,   
+RM6785: [@ѕαмαя νιѕρυтє](https://github.com/SamarV-121) ,  
+begonia: [@Simone Esposito](https://github.com/DarkJoker360) ,  [@Zinadin Zidan](https://github.com/ZIDAN44) ,  
+cannon: [@LinkBoi00](https://github.com/LinkBoi00) , [@Vaisakh Murali](https://github.com/mvaisakh) ,  
+ares: [@Tkpointz](https://github.com/Tkpointz) , [@SagarMakhar](https://github.com/SagarMakhar) ,  
+Phh-Treble: [@Pierre-Hugues HUSSON](https://github.com/phhusson)  
 and many others contributed to it.
 
 ### Known issues
 - Hands-free volume adjustment when taking a call
 - Deep sleep when AOD is on
-- Occasional high brightness on screen unlock via UDFPS
-- Power-off Charging
-- DT2W
+- Power-off Charging frame
+- DT2W & DC-Dimming
 - SELinux: Permissive
 - Maybe more...
 
 ### NOTICE
-Before starting the build, make sure you have __commented out the third line__ in `device/custom/sepolicy/common/private/property_context`  
-If not, it will cause __bootloop__
-
+__Before starting the build, make sure you have applied [patches](https://github.com/coolscode/patches) for [PixelExperience-Plus](https://github.com/PixelExperience/manifest/tree/twelve-plus) (branch 'twelve-plus') source code with__ 
 ```
-# Aux camera
-vendor.camera.aux.packageexcludelist   u:object_r:vendor_persist_camera_prop:s0
-#vendor.camera.aux.packagelist          u:object_r:vendor_persist_camera_prop:s0
-
-# Radio
-ro.telephony.use_old_mnc_mcc_format    u:object_r:telephony_config_prop:s0
-
-# Wi-Fi Display
-media.wfd.                             u:object_r:media_wfd_prop:s0
+git clone https://github.com/coolscode/patches
+bash patches/apply.sh pe
 ```
 
 __Prebuilt vendor__ and __prebuilt kernel__ are used for now  
@@ -39,7 +37,7 @@ Recommended firmware:
 > Fastboot ROM: not released yet
 
 Recommended Recovery:
-> OrangeFox R12.1: https://github.com/coolscode/ofrp_device_xiaomi_cezanne/releases
+> OrangeFox R12.1: https://github.com/coolscode/ofrp_device_xiaomi_cezanne/releases  
 
 __Now the OrangeFox Recovery can handle the fbe encryption of android 12!__
 
