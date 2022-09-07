@@ -1,6 +1,6 @@
 [
   {
-    "repository": "android_hardware_xiaomi",
+    "repository": "hardware_xiaomi",
     "target_path": "hardware/xiaomi"
   },
   {
@@ -10,11 +10,16 @@
   {
     "repository": "proprietary_vendor_xiaomi_cezanne",
     "target_path": "vendor/xiaomi/cezanne"
+  },
+  {
+    "repository": "android_packages_apps_GameSpace",
+    "target_path": "packages/apps/GameSpace"
   }
 ]
 
 // Assume that you are at the root directory of the Android source.
-// git clone https://github.com/LineageOS/android_hardware_xiaomi hardware/xiaomi
+// git clone https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi
 // git clone https://github.com/coolscode/kernel_xiaomi_mt6885 kernel/xiaomi/mt6885
 // git clone https://github.com/coolscode/proprietary_vendor_xiaomi_cezanne vendor/xiaomi/cezanne
+// git clone https://github.com/crdroidandroid/android_packages_apps_GameSpace packages/apps/GameSpace
 // If you want to save some space, use "--depth=1"
