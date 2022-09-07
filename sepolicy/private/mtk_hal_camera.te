@@ -1,0 +1,6 @@
+type mtk_hal_camera, domain;
+type mtk_hal_camera_tmpfs, fs_type;
+type mtk_hal_camera_exec, exec_type, file_type;
+init_daemon_domain(mtk_hal_camera)
+
+allow mtk_hal_camera default_prop:file r_file_perms;

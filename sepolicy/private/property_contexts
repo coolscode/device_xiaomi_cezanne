@@ -1,6 +1,11 @@
-persist.vendor.log.tel_dbg   u:object_r:system_mtk_em_tel_log_prop:s0
-vendor.ril.imsconfig.force.notify u:object_r:system_mtk_imsconfig_prop:s0
-init.svc.emdlogger1 u:object_r:system_mtk_init_svc_emdlogger1_prop:s0
-persist.vendor.mtk_rcs_single_reg_support u:object_r:system_mtk_rcs_single_reg_support_prop:s0
-ro.vendor.mtk_cta_set u:object_r:system_mtk_cta_set_prop:s0
-persist.vendor.accelerate.charge        u:object_r:exported_system_prop:s0
+persist.vendor.log.tel_dbg                          u:object_r:system_mtk_em_tel_log_prop:s0
+vendor.ril.imsconfig.force.notify                   u:object_r:system_mtk_imsconfig_prop:s0
+init.svc.emdlogger1                                 u:object_r:system_mtk_init_svc_emdlogger1_prop:s0
+persist.vendor.mtk_rcs_single_reg_support           u:object_r:system_mtk_rcs_single_reg_support_prop:s0
+ro.vendor.mtk_cta_set                               u:object_r:system_mtk_cta_set_prop:s0
+persist.vendor.accelerate.charge                    u:object_r:exported_system_prop:s0
+persist.vendor.camera.privapp.list                  u:object_r:default_prop:s0
+vendor.camera.skip_unconfigure.packagelist          u:object_r:default_prop:s0
+persist.vendor.camera.capture.depurple.mask         u:object_r:default_prop:s0
+vendor.xiaomi.camera.capture.depurple.bypass        u:object_r:default_prop:s0
+persist.vendor.camera.capture.depurple.dump         u:object_r:default_prop:s0
