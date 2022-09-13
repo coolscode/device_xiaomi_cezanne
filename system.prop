@@ -29,6 +29,9 @@ ro.mtk_perf_simple_start_win=1
 ro.mtk_perf_fast_start_win=1
 ro.mtk_perf_response_time=1
 
+# Silence gralloc4 logspam
+persist.log.tag.gralloc4=S
+
 # Surfaceflinger
 debug.sf.latch_unsignaled=1
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
