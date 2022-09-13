@@ -56,7 +56,7 @@ system_ext/lib/vendor.mediatek.hardware.videotelephony@1.0.so
 system_ext/lib64/vendor.mediatek.hardware.videotelephony@1.0.so
 
 # MIUI Camera
--priv-app/MiuiCamera/MiuiCamera.apk;OVERRIDES=Snap,GoogleCameraGo,Camera2
+-priv-app/MiuiCamera/MiuiCamera.apk;OVERRIDES=Snap,Camera2
 lib64/libcamera_algoup_jni.xiaomi.so
 lib64/libcamera_ispinterface_jni.xiaomi.so
 lib64/libcamera_mianode_jni.xiaomi.so
